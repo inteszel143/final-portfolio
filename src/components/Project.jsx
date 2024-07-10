@@ -48,7 +48,7 @@ const Project = () => {
                   {tech}
                 </span>
               ))}
-              <div className="flex flex-wrap gap-5 mt-10">
+              <div className="flex flex-wrap gap-3 mt-10">
                 <a href={item?.apple} target="_blank">
                   <div className="rounded-lg border-2 border-neutral-800 px-4 py-3 cursor-pointer flex items-center gap-2  transition-transform transform scale-100 group hover:scale-110">
                     <FaApple />
