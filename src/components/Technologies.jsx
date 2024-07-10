@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { SiTailwindcss } from "react-icons/si";
 import { RiFirebaseFill } from "react-icons/ri";
 import { IoLogoJavascript } from "react-icons/io5";
+import { SiReactquery } from "react-icons/si";
 const iconVariants = (duration) => ({
   initial: { y: -10 },
   animate: {
@@ -59,6 +60,14 @@ const Technologies = () => {
           className="rounded-2xl border-4 border-neutral-800 p-4 cursor-pointer"
         >
           <SiMongodb className="text-7xl text-green-500" />
+        </motion.div>
+        <motion.div
+          variants={iconVariants(0.5)}
+          initial="initial"
+          animate="animate"
+          className="rounded-2xl border-4 border-neutral-800 p-4 cursor-pointer"
+        >
+          <SiReactquery className="text-7xl text-red-800" />
         </motion.div>
 
         <motion.div

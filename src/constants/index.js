@@ -42,7 +42,7 @@ export const EXPERIENCES = [
   {
     year: "July 2024 - Last Update",
     role: "Front-end Mobile Developer",
-    company: "No Company",
+    company: "On Job Training",
     description: `Developed a social media app where I've taken inspiration from Twitter, featuring a user-friendly design reminiscent of your favorite short-form blogging platform.`,
     technologies: ["Javascript", "React Native", "Tailwind CSS", "Expo"],
   },
@@ -55,10 +55,8 @@ export const EXPERIENCES = [
       "Javascript",
       "React Native",
       "Tailwind CSS",
-      "NodeJS",
-      "MongoDB",
-      "Postman",
       "Expo",
+      "Firebase",
     ],
   },
 ];
