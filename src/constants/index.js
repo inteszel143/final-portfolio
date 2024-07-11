@@ -77,6 +77,7 @@ export const PROJECTS = [
     ],
     apple: "https://github.com/inteszel143/iweft",
     google: "https://github.com/inteszel143/iweft",
+    github: "https://github.com/inteszel143/iweft",
   },
   {
     title: "iMotor.app - Car Listing Mobile Application - Dubai",
@@ -94,6 +95,7 @@ export const PROJECTS = [
     apple: "https://apps.apple.com/us/app/davcu/id6451493793?platform=iphone",
     google:
       "https://play.google.com/store/apps/details?id=com.paras23.iMotor.app&hl=en-PH",
+    github: "https://github.com/inteszel143/iMotor",
   },
   {
     title: "TrendingCast - Social Media Clone Mobile Application",
@@ -103,6 +105,7 @@ export const PROJECTS = [
     technologies: ["Javascript", "React Native", "Tailwind CSS", "Expo"],
     apple: "https://github.com/inteszel143/Trending-cast",
     google: "https://github.com/inteszel143/Trending-cast",
+    github: "https://github.com/inteszel143/Trending-cast",
   },
   {
     title: "Davcu - E-commerce Mobile Application - Capstone Project",
@@ -113,6 +116,7 @@ export const PROJECTS = [
     apple: "https://apps.apple.com/us/app/davcu/id6451493793?platform=iphone",
     google:
       "https://play.google.com/store/apps/details?id=com.paras23.DavCuApp&hl=en-PH",
+    github: "https://github.com/inteszel143/davcu",
   },
 ];
 

@@ -1,7 +1,7 @@
 import { PROJECTS } from "../constants";
 import { FaApple } from "react-icons/fa";
 import { BsGooglePlay } from "react-icons/bs";
-// import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 const Project = () => {
   return (
@@ -61,10 +61,12 @@ const Project = () => {
                     <span className="text-sm">Google Play</span>
                   </div>
                 </a>
-                {/* <div className="rounded-lg border-2 border-neutral-800 px-4 py-3 cursor-pointer flex items-center gap-2  transition-transform transform scale-100 group hover:scale-110">
-                  <MdOutlineRemoveRedEye />
-                  <span className="text-sm">Preview</span>
-                </div> */}
+                <a href={item?.github} target="_blank">
+                  <div className="rounded-lg border-2 border-neutral-800 px-4 py-3 cursor-pointer flex items-center gap-2  transition-transform transform scale-100 group hover:scale-110">
+                    <FaGithub />
+                    <span className="text-sm">Github</span>
+                  </div>
+                </a>
               </div>
             </motion.div>
           </div>

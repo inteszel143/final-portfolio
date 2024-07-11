@@ -62,7 +62,7 @@ const Technologies = () => {
           <SiMongodb className="text-7xl text-green-500" />
         </motion.div>
         <motion.div
-          variants={iconVariants(0.5)}
+          variants={iconVariants(2)}
           initial="initial"
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4 cursor-pointer"
