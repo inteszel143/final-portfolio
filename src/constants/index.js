@@ -12,7 +12,7 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 export const EXPERIENCES = [
   {
-    year: "May 2023 - Present",
+    year: "May 2024 - Present",
     role: "Junior Front-end Mobile Developer",
     company: "PH Virtual Team.",
     description: `I developed a comprehensive mobile application for booking laundry services in Dubai. This app streamlines the process of scheduling, managing, and tracking laundry services for users, providing a convenient solution for both customers and laundry service providers using JavaScript, React Native, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases.`,
@@ -40,7 +40,7 @@ export const EXPERIENCES = [
     ],
   },
   {
-    year: "July 2024 - Last Update",
+    year: "July 2023 - September 2023",
     role: "Front-end Mobile Developer",
     company: "On Job Training",
     description: `Developed a social media app where I've taken inspiration from Twitter, featuring a user-friendly design reminiscent of your favorite short-form blogging platform.`,
