@@ -13,7 +13,7 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 export const EXPERIENCES = [
   {
     year: "May 2024 - Present",
-    role: "Junior Front-end Mobile Developer",
+    role: "Front-end Mobile Developer",
     company: "PH Virtual Team.",
     description: `I developed a comprehensive mobile application for booking laundry services in Dubai. This app streamlines the process of scheduling, managing, and tracking laundry services for users, providing a convenient solution for both customers and laundry service providers using JavaScript, React Native, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases.`,
     technologies: [
@@ -27,7 +27,7 @@ export const EXPERIENCES = [
   },
   {
     year: "December 2023 - May 2024",
-    role: "Junior Front-end Mobile Developer",
+    role: "Front-end Mobile Developer",
     company: "PH Virtual Team.",
     description: `I developed a versatile mobile application for listing and exploring various vehicles, including cars, motorcycles, trucks, and boats, all based in Dubai. This app provides a user-friendly platform for both buyers and sellers to interact and conduct transactions seamlessly.`,
     technologies: [
