@@ -75,7 +75,8 @@ export const PROJECTS = [
       "Postman",
       "Expo",
     ],
-    apple: "https://github.com/inteszel143/iweft",
+    apple:
+      "https://apps.apple.com/us/app/iweft-laundry-dry-cleaning/id6578443052?platform=iphone",
     google: "https://github.com/inteszel143/iweft",
     github: "https://github.com/inteszel143/iweft",
   },
@@ -92,7 +93,8 @@ export const PROJECTS = [
       "Postman",
       "Expo",
     ],
-    apple: "https://apps.apple.com/us/app/davcu/id6451493793?platform=iphone",
+    apple:
+      "https://apps.apple.com/us/app/imotor-app/id6474266743?platform=iphone",
     google:
       "https://play.google.com/store/apps/details?id=com.paras23.iMotor.app&hl=en-PH",
     github: "https://github.com/inteszel143/iMotor",
