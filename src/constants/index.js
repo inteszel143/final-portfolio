@@ -14,7 +14,7 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 export const EXPERIENCES = [
   {
     year: "August 2024 - October 2024",
-    role: "Front-end Mobile Developer",
+    role: "Front-end Mobile Developer (CitizenOne™)",
     company: "Awork Company Denmark",
     description: `I developed a comprehensive mobile application for a citizen record system in Denmark. This app provides a complete digital solution for electronic registration, secure data storage, and easy access to relevant information for authorized users. The system eliminates the need for physical documents or scattered digital files, ensuring that all necessary data is available when needed. The app was built using React Native, TypeScript, and Expo. Implemented RESTful APIs with a Laravel backend and integrated with MySQL databases.`,
     technologies: [
@@ -29,21 +29,21 @@ export const EXPERIENCES = [
   },
   {
     year: "May 2024 - August 2024",
-    role: "Front-end Mobile Developer",
+    role: "Full stack Mobile Developer (iWeft)",
     company: "PH Virtual Team.",
-    description: `I developed a comprehensive mobile application for booking laundry services in Dubai. This app streamlines the process of scheduling, managing, and tracking laundry services for users, providing a convenient solution for both customers and laundry service providers using JavaScript, React Native, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases.`,
+    description: `I developed a comprehensive mobile application for booking laundry services in Dubai. This app streamlines the process of scheduling, managing, and tracking laundry services for users, providing a convenient solution for both customers and laundry service providers using Typescript, React Native, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases.`,
     technologies: [
-      "Javascript",
+      "Typescript",
       "React Native",
-      "Tailwind CSS",
+      "Node.js",
       "MongoDB",
-      "Postman",
       "Expo",
+      "Expo router",
     ],
   },
   {
     year: "December 2023 - May 2024",
-    role: "Front-end Mobile Developer",
+    role: "Front-end Mobile Developer (iMotor.app)",
     company: "PH Virtual Team.",
     description: `I developed a versatile mobile application for listing and exploring various vehicles, including cars, motorcycles, trucks, and boats, all based in Dubai. This app provides a user-friendly platform for both buyers and sellers to interact and conduct transactions seamlessly.`,
     technologies: [
@@ -57,14 +57,14 @@ export const EXPERIENCES = [
   },
   {
     year: "July 2023 - September 2023",
-    role: "Front-end Mobile Developer",
+    role: "Front-end Mobile Developer (TrendingCast)",
     company: "On Job Training",
     description: `Developed a social media app where I've taken inspiration from Twitter, featuring a user-friendly design reminiscent of your favorite short-form blogging platform.`,
     technologies: ["Javascript", "React Native", "Tailwind CSS", "Expo"],
   },
   {
     year: "May 2023 - Last Update",
-    role: "Full Stack Mobile Developer",
+    role: "Full Stack Mobile Developer (Davcu)",
     company: "Capstone Project",
     description: `A mobile e-commerce app for native handicrafts in Davao City that allows users to purchase native products and promote our handmade, local products. This app caters to three types of users: buyers, sellers, and riders, and it also provides an interface for searching, comparing, and tracking orders.`,
     technologies: [
@@ -102,7 +102,7 @@ export const PROJECTS = [
     title: "iWeft - Booking Laundry Mobile Application - (Dubai)",
     image: project1,
     description:
-      "A fully functional mobile application for booking laundry services in Dubai. This app streamlines the process of scheduling, managing, and tracking laundry services for users, providing a convenient solution for both customers and laundry service providers using JavaScript, React Native, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases.",
+      "A fully functional mobile application for booking laundry services in Dubai. This app streamlines the process of scheduling, managing, and tracking laundry services for users, providing a convenient solution for both customers and laundry service providers using Typescript, React Native, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases.",
     technologies: [
       "Javascript",
       "React Native",
