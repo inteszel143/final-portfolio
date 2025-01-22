@@ -92,10 +92,9 @@ export const PROJECTS = [
       "Expo",
       "Expo Router",
     ],
-    // apple:
-    //   "https://apps.apple.com/us/app/iweft-laundry-dry-cleaning/id6578443052?platform=iphone",
-    apple: "",
-    google: "",
+    apple:
+      "https://apps.apple.com/us/app/citizenone/id6737061242",
+    google: "https://play.google.com/store/apps/details?id=com.aworkAS.CitizenOne",
     github: "https://github.com/AWORK-AS/citizenone-mobile",
   },
   {
