@@ -4,7 +4,8 @@ import project2 from "../assets/projects/car-rental.png";
 import project3 from "../assets/projects/trends.png";
 import project4 from "../assets/projects/DavcuMobile.png";
 
-export const HERO_CONTENT = `I am a dedicated Full Stack Mobile Developer with a passion for creating innovative and efficient mobile applications. With extensive experience in both front-end and back-end development, I have a comprehensive understanding of the full mobile development lifecycle, from concept to deployment.`;
+// export const HERO_CONTENT = `I am a dedicated Full Stack Mobile Developer with a passion for creating innovative and efficient mobile applications. With extensive experience in both front-end and back-end development, I have a comprehensive understanding of the full mobile development lifecycle, from concept to deployment.`;
+export const HERO_CONTENT = `Crafting seamless, high-performance mobile experiences is not just my job — it’s my passion. With solid expertise in both front-end and back-end development. I bring ideas to life through clean architecture, intuitive design, and efficient code. From initial concept to final deployment, I thrive in building mobile apps that are not only functional but also delightful to use.`;
 
 export const FRONTEND = `Frontend: React, React Native, HTML, CSS, Bootstrap, Javascript, Tailwind CSS, React Query and Zustand.`;
 export const BACKEND = `Backend: Node JS, Express JS, MongoDB, Firebase, Laravel, PHP, SQL or MySQL.`;
@@ -13,7 +14,21 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 export const EXPERIENCES = [
   {
-    year: "August 2024 - October 2024",
+    year: "May 2025 - Present",
+    role: "Front-end Mobile Developer (AWORKONE)",
+    company: "Awork Company Denmark",
+    description: `I developed a mobile application for a analytics. This application was built using React Native, TypeScript, and Expo. Implemented RESTful APIs with a Laravel backend and integrated with MySQL databases.`,
+    technologies: [
+      "Typescript",
+      "React Native",
+      "Expo",
+      "Expo Router",
+      "Mysql Database",
+      "Laravel",
+    ],
+  },
+  {
+    year: "August 2024 - Present",
     role: "Front-end Mobile Developer (CitizenOne™)",
     company: "Awork Company Denmark",
     description: `I developed a comprehensive mobile application for a citizen record system in Denmark. This app provides a complete digital solution for electronic registration, secure data storage, and easy access to relevant information for authorized users. The system eliminates the need for physical documents or scattered digital files, ensuring that all necessary data is available when needed. The app was built using React Native, TypeScript, and Expo. Implemented RESTful APIs with a Laravel backend and integrated with MySQL databases.`,
@@ -23,7 +38,6 @@ export const EXPERIENCES = [
       "Expo",
       "Expo Router",
       "Mysql Database",
-      "Postman",
       "Laravel",
     ],
   },
@@ -92,9 +106,9 @@ export const PROJECTS = [
       "Expo",
       "Expo Router",
     ],
-    apple:
-      "https://apps.apple.com/us/app/citizenone/id6737061242",
-    google: "https://play.google.com/store/apps/details?id=com.aworkAS.CitizenOne",
+    apple: "https://apps.apple.com/us/app/citizenone/id6737061242",
+    google:
+      "https://play.google.com/store/apps/details?id=com.aworkAS.CitizenOne",
     github: "https://github.com/AWORK-AS/citizenone-mobile",
   },
   {

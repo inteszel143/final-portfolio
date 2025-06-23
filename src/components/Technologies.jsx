@@ -1,12 +1,12 @@
 import { RiReactjsLine } from "react-icons/ri";
 import { SiMongodb } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
-import { BiLogoPostgresql } from "react-icons/bi";
+import { SiExpo } from "react-icons/si";
 import { motion } from "framer-motion";
 import { SiTailwindcss } from "react-icons/si";
 import { RiFirebaseFill } from "react-icons/ri";
 import { IoLogoJavascript } from "react-icons/io5";
-import { SiReactquery } from "react-icons/si";
+import { FaLaravel } from "react-icons/fa";
 const iconVariants = (duration) => ({
   initial: { y: -10 },
   animate: {
@@ -59,7 +59,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4 cursor-pointer"
         >
-          <SiMongodb className="text-7xl text-green-500" />
+          <SiExpo className="text-7xl text-white" />
         </motion.div>
         <motion.div
           variants={iconVariants(2)}
@@ -67,7 +67,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4 cursor-pointer"
         >
-          <SiReactquery className="text-7xl text-red-800" />
+          <FaLaravel className="text-7xl text-orange-700" />
         </motion.div>
 
         <motion.div
@@ -93,7 +93,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4 cursor-pointer"
         >
-          <BiLogoPostgresql className="text-7xl text-sky-700" />
+          <SiMongodb className="text-7xl text-green-500" />
         </motion.div>
 
         <motion.div
