@@ -14,7 +14,7 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 export const EXPERIENCES = [
   {
-    year: "May 2025 - Present",
+    year: "May 2025",
     role: "Front-end Mobile Developer (AWORKONE)",
     company: "Awork Company Denmark",
     description: `I developed a mobile application for a analytics. This application was built using React Native, TypeScript, and Expo. Implemented RESTful APIs with a Laravel backend and integrated with MySQL databases.`,
@@ -28,7 +28,7 @@ export const EXPERIENCES = [
     ],
   },
   {
-    year: "August 2024 - Present",
+    year: "August 2024",
     role: "Front-end Mobile Developer (CitizenOne™)",
     company: "Awork Company Denmark",
     description: `I developed a comprehensive mobile application for a citizen record system in Denmark. This app provides a complete digital solution for electronic registration, secure data storage, and easy access to relevant information for authorized users. The system eliminates the need for physical documents or scattered digital files, ensuring that all necessary data is available when needed. The app was built using React Native, TypeScript, and Expo. Implemented RESTful APIs with a Laravel backend and integrated with MySQL databases.`,
