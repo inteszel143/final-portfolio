@@ -106,9 +106,11 @@ export const PROJECTS = [
       "Expo",
       "Expo Router",
     ],
-    apple: "https://apps.apple.com/us/app/citizenone/id6737061242",
-    google:
-      "https://play.google.com/store/apps/details?id=com.aworkAS.CitizenOne",
+    // apple: "https://apps.apple.com/us/app/citizenone/id6737061242",
+    apple: "",
+    // google:
+    //   "https://play.google.com/store/apps/details?id=com.aworkAS.CitizenOne",
+    google: "",
     github: "https://github.com/AWORK-AS/citizenone-mobile",
   },
   {
