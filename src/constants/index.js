@@ -145,7 +145,7 @@ export const PROJECTS = [
       "Expo",
     ],
     apple:
-      "https://apps.apple.com/us/app/imotor-app/id6474266743?platform=iphone",
+      "https://apps.apple.com/us/app/imotor-buy-sell-in-the-uae/id6746357123",
     google:
       "https://play.google.com/store/apps/details?id=com.paras23.iMotor.app&hl=en-PH",
     github: "https://github.com/inteszel143/iMotor",
