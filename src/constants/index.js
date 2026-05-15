@@ -1,3 +1,4 @@
+import obiyen from "../assets/projects/Obiyen.png";
 import citizenOne from "../assets/projects/citizenOne.png";
 import project1 from "../assets/projects/iweft.png";
 import project2 from "../assets/projects/car-rental.png";
@@ -92,6 +93,25 @@ export const EXPERIENCES = [
 ];
 
 export const PROJECTS = [
+  {
+    title:
+      "Obiyen - Manage SEO, GDPR, cookies and marketing in one powerful business platform.",
+    image: obiyen,
+    description:
+      "Obiyen brings together essential business tools in one platform. Manage cookies, monitor SEO rankings, analyze websites and track performance across your digital channels - all from your mobile device.",
+    technologies: [
+      "React Native",
+      "Typescript",
+      "Mysql",
+      "Laravel",
+      "Expo",
+      "Expo Router",
+    ],
+    apple: "https://apps.apple.com/us/app/awork-one/id6745732464",
+    google:
+      "https://play.google.com/store/apps/details?id=com.aworkone.AworkOne",
+    github: "",
+  },
   {
     title:
       "CitizenOne™ - Mobile Application for Citizen Record System - (Denmark)",
