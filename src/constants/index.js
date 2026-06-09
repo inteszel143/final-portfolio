@@ -110,7 +110,7 @@ export const PROJECTS = [
     apple: "https://apps.apple.com/us/app/awork-one/id6745732464",
     google:
       "https://play.google.com/store/apps/details?id=com.aworkone.AworkOne",
-    github: "",
+    github: "https://github.com/AWORK-AS/insight-mobile",
   },
   {
     title:
@@ -126,11 +126,8 @@ export const PROJECTS = [
       "Expo",
       "Expo Router",
     ],
-    // apple: "https://apps.apple.com/us/app/citizenone/id6737061242",
-    apple: "",
-    // google:
-    //   "https://play.google.com/store/apps/details?id=com.aworkAS.CitizenOne",
-    google: "",
+    apple: "https://apps.apple.com/us/app/citizenone/id6737061242",
+    google: "https://play.google.com/store/apps/details?id=com.aworkAS.CitizenOne",
     github: "https://github.com/AWORK-AS/citizenone-mobile",
   },
   {
