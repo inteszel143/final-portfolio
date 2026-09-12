@@ -19,7 +19,7 @@ const Hero = () => {
               animate="visible"
               className="pb-2 text-4xl font-semibold tracking-tight lg:mt-16 lg:text-6xl"
             >
-              Hello, I am Edzel Intes
+              Hello, I`m Edzel Intes
             </motion.h1>
             <motion.p
               variants={container(0.5)}
@@ -45,6 +45,17 @@ const Hero = () => {
             >
               {BACKEND}
             </motion.p>
+            <motion.a
+              variants={container(2)}
+              initial="hidden"
+              animate="visible"
+              href="https://canva.link/qlfus4x1tmvh1yt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 mb-8 inline-flex items-center justify-center rounded-lg bg-neutral-300 px-6 py-3 font-medium text-neutral-950 transition-colors hover:bg-neutral-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+            >
+              View Resume
+            </motion.a>
           </div>
         </div>
         <div className="w-full lg:w-1/2 lg:p-8">
