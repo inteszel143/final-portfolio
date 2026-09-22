@@ -36,18 +36,20 @@ const Project = () => {
               whileInView={{ opacity: 1, x: 0 }}
               initial={{ opacity: 0, x: 100 }}
               transition={{ duration: 0.5 }}
-              className="w-full max-w-xl lg:w-1/2"
+              className="min-w-0 w-full max-w-xl lg:w-1/2"
             >
               <h6 className="mb-2 font-semibold">{item?.title}</h6>
               <p className="mb-4 text-neutral-400">{item?.description}</p>
-              {item?.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="mr-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-green-700"
-                >
-                  {tech}
-                </span>
-              ))}
+              <div className="flex flex-wrap gap-2">
+                {item?.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="max-w-full break-words rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-green-700"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
               <div className="flex flex-wrap gap-3 mt-10">
                 <a href={item?.apple} target="_blank">
                   <div className="rounded-lg border-2 border-neutral-800 px-4 py-3 cursor-pointer flex items-center gap-2  transition-transform transform scale-100 group hover:scale-110">

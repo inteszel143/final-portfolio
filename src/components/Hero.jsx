@@ -1,5 +1,6 @@
 import { BACKEND, FRONTEND, HERO_CONTENT } from "../constants";
 import profilePic from "../assets/edzelHero.png";
+import resumePdf from "../assets/resume/Intes Resume.pdf";
 import { motion } from "framer-motion";
 
 const container = (delay) => ({
@@ -49,10 +50,10 @@ const Hero = () => {
               variants={container(2)}
               initial="hidden"
               animate="visible"
-              href="https://canva.link/qlfus4x1tmvh1yt"
+              href={resumePdf}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 mb-8 inline-flex items-center justify-center rounded-lg bg-neutral-300 px-6 py-3 font-medium text-neutral-950 transition-colors hover:bg-neutral-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+              className="mt-4 mb-8 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-neutral-300 px-6 py-3 text-center text-base font-medium text-neutral-950 transition-colors hover:bg-neutral-200 active:bg-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 sm:w-auto"
             >
               View Resume
             </motion.a>
@@ -61,9 +62,10 @@ const Hero = () => {
         <div className="w-full lg:w-1/2 lg:p-8">
           <div className="flex justify-center  hover:-translate-y-3 transition-all duration-300 cursor-pointer">
             <motion.img
-              variants={container(1.2)}
+              variants={container(0.15)}
               initial="hidden"
-              animate="visible"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
               src={profilePic}
               alt="Edzel Intes"
             />
