@@ -1,3 +1,4 @@
+import anchorIntoPresence from "../assets/projects/AIP.png";
 import obiyen from "../assets/projects/Obiyen.png";
 import citizenOne from "../assets/projects/citizenOne.png";
 import project1 from "../assets/projects/iweft.png";
@@ -16,6 +17,21 @@ export const BACKEND = `Backend: Node JS, Express JS, MongoDB, Firebase, Laravel
 export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
 
 export const EXPERIENCES = [
+  {
+    year: "September 2026",
+    role: "Full Stack Mobile Developer (Anchor Into Presence)",
+    company: "Mindfully Evolve LLC",
+    description: `I developed Anchor Into Presence, a mindfulness and meditation mobile application featuring guided meditations, daily inspiration, and meditation recommendations. My full stack work involved Flutter and Dart for the mobile app, alongside NextJS, TypeScript, MongoDB, Firebase, and AWS to support the application.`,
+    technologies: [
+      "Flutter",
+      "Dart",
+      "NextJS",
+      "TypeScript",
+      "MongoDB",
+      "Firebase",
+      "AWS",
+    ],
+  },
   {
     year: "August 2024 - September 2026",
     role: "Front-end Mobile Developer (Obiyen)",
@@ -95,6 +111,25 @@ export const EXPERIENCES = [
 ];
 
 export const PROJECTS = [
+  {
+    title: "Anchor Into Presence - Mindfulness & Meditation Mobile Application",
+    image: anchorIntoPresence,
+    description:
+      "A mindfulness and meditation mobile application designed to help users make space for daily reflection and feel more present. The app brings together guided meditations, daily inspiration, and meditation recommendations in a calm, intuitive interface. Users can explore practices, search for meditations, and save favorites to support a consistent mindfulness routine.",
+    technologies: [
+      "Flutter",
+      "Dart",
+      "NextJS",
+      "TypeScript",
+      "MongoDB",
+      "Firebase",
+      "AWS",
+    ],
+    apple: "https://apps.apple.com/us/app/obiyen/6751270555",
+    google:
+      "https://play.google.com/store/apps/details?id=com.mediation.mindfullyevolve.mindfully_evolve_app",
+    github: "https://github.com/inteszel143/AnchorIntoPresence-frontend",
+  },
   {
     title:
       "Obiyen - Manage SEO, GDPR, cookies and marketing in one powerful business platform.",
