@@ -2,7 +2,7 @@ import anchorIntoPresence from "../assets/projects/AIP.png";
 import obiyen from "../assets/projects/Obiyen.png";
 import citizenOne from "../assets/projects/citizenOne.png";
 import project1 from "../assets/projects/iweft.png";
-import project2 from "../assets/projects/car-rental.png";
+import project2 from "../assets/projects/imotor_app.png";
 import project3 from "../assets/projects/trends.png";
 import project4 from "../assets/projects/DavcuMobile.png";
 
