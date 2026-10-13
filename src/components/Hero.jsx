@@ -79,8 +79,12 @@ const Hero = () => {
       </div>
 
       <div className="mx-auto mt-10 grid max-w-6xl gap-5 sm:mt-12 lg:grid-cols-[minmax(0,3fr)_minmax(0,7fr)]">
-        <section
+        <motion.section
           aria-labelledby="core-stack-heading"
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5 }}
           className="flex min-w-0 flex-col rounded-3xl border border-neutral-800 bg-[#161616] p-6 sm:p-7"
         >
           <h2 id="core-stack-heading" className="text-lg font-semibold text-neutral-100">
@@ -104,9 +108,13 @@ const Hero = () => {
           >
             See full tech stack <FiArrowRight aria-hidden="true" />
           </a>
-        </section>
-        <section
+        </motion.section>
+        <motion.section
           aria-labelledby="github-contributions-heading"
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.1 }}
           className="flex min-w-0 flex-col justify-center rounded-3xl border border-neutral-800 bg-[#161616] p-6 sm:p-8"
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -148,7 +156,7 @@ const Hero = () => {
               />
             </div>
           )}
-        </section>
+        </motion.section>
       </div>
     </section>
   );

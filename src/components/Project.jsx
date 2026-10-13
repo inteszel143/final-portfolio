@@ -67,7 +67,7 @@ const Project = () => {
             tabIndex={activeCategory === id ? 0 : -1}
             onClick={() => setActiveCategory(id)}
             onKeyDown={(event) => handleTabKeyDown(event, index)}
-            className={`min-h-11 rounded-lg border px-6 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 ${
+            className={`inline-flex min-h-11 items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 sm:px-6 ${
               activeCategory === id
                 ? "border-green-400/50 bg-green-400/10 text-green-300"
                 : "border-neutral-800 bg-neutral-900/40 text-neutral-400 hover:border-neutral-600 hover:text-neutral-200"
