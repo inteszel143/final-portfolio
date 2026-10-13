@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { PROJECTS } from "../constants";
 import { FaApple, FaGithub, FaGlobe } from "react-icons/fa";
 import { BsGooglePlay } from "react-icons/bs";
@@ -10,8 +11,32 @@ const PROJECT_LINKS = [
   { key: "github", label: "GitHub", Icon: FaGithub },
 ];
 
+const PROJECT_TABS = [
+  { id: "mobile", label: "Mobile" },
+  { id: "web", label: "Web" },
+  { id: "desktop", label: "Desktop" },
+];
+
 const Project = () => {
   const reduceMotion = useReducedMotion();
+  const [activeCategory, setActiveCategory] = useState("mobile");
+  const filteredProjects = PROJECTS.filter(
+    (project) => project.category === activeCategory,
+  );
+
+  const handleTabKeyDown = (event, index) => {
+    let nextIndex;
+    if (event.key === "ArrowRight") nextIndex = (index + 1) % PROJECT_TABS.length;
+    else if (event.key === "ArrowLeft")
+      nextIndex = (index - 1 + PROJECT_TABS.length) % PROJECT_TABS.length;
+    else if (event.key === "Home") nextIndex = 0;
+    else if (event.key === "End") nextIndex = PROJECT_TABS.length - 1;
+    else return;
+
+    event.preventDefault();
+    setActiveCategory(PROJECT_TABS[nextIndex].id);
+    document.getElementById(`project-tab-${PROJECT_TABS[nextIndex].id}`)?.focus();
+  };
 
   return (
     <section
@@ -24,13 +49,50 @@ const Project = () => {
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="my-20 text-center text-4xl"
+        className="mb-8 mt-20 text-center text-4xl"
       >
         Projects
       </motion.h2>
 
-      <div className="mx-auto grid max-w-6xl gap-8 sm:gap-10">
-        {PROJECTS.map((project) => (
+      <div role="tablist" aria-label="Project categories" className="mb-10 flex flex-wrap justify-center gap-2">
+        {PROJECT_TABS.map(({ id, label }, index) => (
+          <button
+            key={id}
+            type="button"
+            role="tab"
+            id={`project-tab-${id}`}
+            aria-selected={activeCategory === id}
+            aria-controls={`project-panel-${id}`}
+            tabIndex={activeCategory === id ? 0 : -1}
+            onClick={() => setActiveCategory(id)}
+            onKeyDown={(event) => handleTabKeyDown(event, index)}
+            className={`min-h-11 rounded-lg border px-6 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 ${
+              activeCategory === id
+                ? "border-green-400/50 bg-green-400/10 text-green-300"
+                : "border-neutral-800 bg-neutral-900/40 text-neutral-400 hover:border-neutral-600 hover:text-neutral-200"
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {PROJECT_TABS.map(({ id }) => (
+      <div
+        key={id}
+        role="tabpanel"
+        id={`project-panel-${id}`}
+        aria-labelledby={`project-tab-${id}`}
+        hidden={activeCategory !== id}
+        tabIndex={0}
+        className={activeCategory === id ? "mx-auto grid max-w-6xl gap-8 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 sm:gap-10" : "hidden"}
+      >
+        {activeCategory === id && filteredProjects.length === 0 && (
+          <p className="rounded-2xl border border-neutral-800 bg-neutral-900/40 px-6 py-16 text-center text-neutral-400">
+            No {id} projects added yet.
+          </p>
+        )}
+        {activeCategory === id && filteredProjects.map((project) => (
           <motion.article
             key={project.title}
             whileInView={{ opacity: 1, y: 0 }}
@@ -98,6 +160,7 @@ const Project = () => {
           </motion.article>
         ))}
       </div>
+      ))}
     </section>
   );
 };

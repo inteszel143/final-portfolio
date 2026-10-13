@@ -5,6 +5,7 @@ import project1 from "../assets/projects/iweft.png";
 import project2 from "../assets/projects/imotor_app.png";
 import project3 from "../assets/projects/trends.png";
 import project4 from "../assets/projects/DavcuMobile.png";
+import vyrtual from "../assets/projects/web/vyrtual.png";
 
 // export const HERO_CONTENT = `I am a dedicated Full Stack Mobile Developer with a passion for creating innovative and efficient mobile applications. With extensive experience in both front-end and back-end development, I have a comprehensive understanding of the full mobile development lifecycle, from concept to deployment.`;
 export const HERO_CONTENT = `I'm a mobile developer focused on building modern iOS and Android apps with React Native, Expo, JavaScript, and TypeScript.
@@ -127,6 +128,23 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
   {
+    category: "web",
+    title: "Vyrtual - Virtual Office for Remote Employees and Freelancers",
+    image: vyrtual,
+    live: "https://vyrtual-two.vercel.app/",
+    github: "https://github.com/inteszel143/vyrtual",
+    description:
+      "A virtual office platform that helps businesses manage remote employees and freelancers from anywhere. Vyrtual brings working-hour tracking and work activity verification into one place, giving managers a clearer view of their distributed teams and simplifying day-to-day oversight. Built with NextJS, Supabase Auth, and Tailwind CSS, with PayMongo integration for payment processing.",
+    technologies: [
+      "NextJS",
+      "Supabase AUTH",
+      "Tailwind CSS",
+      "PayMongo",
+      "Vercel"
+    ],
+  },
+  {
+    category: "mobile",
     title: "Anchor Into Presence - Mindfulness & Meditation Mobile Application",
     image: anchorIntoPresence,
     description:
@@ -148,6 +166,7 @@ export const PROJECTS = [
     github: "https://github.com/inteszel143/AnchorIntoPresence-frontend",
   },
   {
+    category: "mobile",
     title:
       "Obiyen - Manage SEO, GDPR, cookies and marketing in one powerful business platform.",
     image: obiyen,
@@ -170,6 +189,7 @@ export const PROJECTS = [
     github: "https://github.com/AWORK-AS/insight-mobile",
   },
   {
+    category: "mobile",
     title:
       "CitizenOne™ - Mobile Application for Citizen Record System - (Denmark)",
     image: citizenOne,
@@ -191,6 +211,7 @@ export const PROJECTS = [
     github: "https://github.com/AWORK-AS/citizenone-mobile",
   },
   {
+    category: "mobile",
     title: "iWeft - Booking Laundry Mobile Application - (Dubai)",
     image: project1,
     description:
@@ -211,6 +232,7 @@ export const PROJECTS = [
     github: "https://github.com/inteszel143/iweft",
   },
   {
+    category: "mobile",
     title: "iMotor.app - Car Listing Mobile Application - (Dubai)",
     image: project2,
     live: "https://imotor.app/",
@@ -233,6 +255,7 @@ export const PROJECTS = [
     github: "https://github.com/inteszel143/iMotor",
   },
   {
+    category: "mobile",
     title: "TrendingCast - Social Media Clone Mobile Application (Ojt project)",
     image: project3,
     description:
@@ -243,6 +266,7 @@ export const PROJECTS = [
     github: "https://github.com/inteszel143/Trending-cast",
   },
   {
+    category: "mobile",
     title: "Davcu - E-commerce Mobile Application - (Capstone Project)",
     image: project4,
     description:
