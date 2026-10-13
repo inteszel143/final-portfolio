@@ -40,6 +40,7 @@ const Project = () => {
 
   return (
     <section
+      id="projects"
       aria-labelledby="projects-heading"
       className="border-b border-neutral-900 pb-16 sm:pb-20"
     >

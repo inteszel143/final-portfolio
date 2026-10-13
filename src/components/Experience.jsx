@@ -6,6 +6,7 @@ const Experience = () => {
 
   return (
     <section
+      id="experience"
       aria-labelledby="experience-heading"
       className="border-b border-neutral-900 pb-16 sm:pb-20"
     >

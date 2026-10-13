@@ -26,6 +26,7 @@ const Hero = () => {
 
   return (
     <section
+      id="home"
       aria-labelledby="intro-heading"
       className="border-b border-neutral-900 pb-16 sm:pb-20"
     >
@@ -37,7 +38,7 @@ const Hero = () => {
           className="min-w-0"
         >
           <p className="mb-4 text-sm font-medium tracking-wide text-green-300">
-            Full Stack Mobile Developer
+            Full Stack Mobile & Web Developer
           </p>
           <h1
             id="intro-heading"

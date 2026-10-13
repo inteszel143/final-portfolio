@@ -7,15 +7,18 @@ import project3 from "../assets/projects/trends.png";
 import project4 from "../assets/projects/DavcuMobile.png";
 import vyrtual from "../assets/projects/web/vyrtual.png";
 
-// export const HERO_CONTENT = `I am a dedicated Full Stack Mobile Developer with a passion for creating innovative and efficient mobile applications. With extensive experience in both front-end and back-end development, I have a comprehensive understanding of the full mobile development lifecycle, from concept to deployment.`;
-export const HERO_CONTENT = `I'm a mobile developer focused on building modern iOS and Android apps with React Native, Expo, JavaScript, and TypeScript.
+export const HERO_CONTENT = `I'm a full stack developer building mobile apps and websites with React Native, Expo, Flutter, React, and Next.js.
 
-I enjoy turning ideas and designs into apps that people can actually use. I’m always learning, improving my skills, and working on new ways to build better mobile experiences.`;
+I enjoy turning ideas and designs into useful products, from iOS and Android apps to responsive web experiences. I’m always learning and finding better ways to bring those ideas to life.`;
 
 export const FRONTEND = `Frontend: React, React Native, HTML, CSS, Bootstrap, Javascript, Tailwind CSS, React Query and Zustand.`;
 export const BACKEND = `Backend: Node JS, Express JS, MongoDB, Firebase, Laravel, PHP, SQL or MySQL.`;
 
-export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
+export const ABOUT_TEXT = `I build mobile and web applications that help people get things done. My projects range from booking and e-commerce apps to business tools and platforms for managing remote teams.
+
+I work with React Native, Expo, and Flutter for mobile development, and React, Next.js, and Tailwind CSS for the web. My full stack work connects these interfaces to APIs, databases, authentication, and payment services using tools such as Node.js, Laravel, MongoDB, Firebase, and Supabase.
+
+I enjoy taking a project from an initial idea to a working product, solving practical problems along the way. Whether I’m building for a phone or a browser, I focus on clear interfaces, reliable functionality, and an experience that feels easy to use.`;
 
 export const EXPERIENCES = [
   {

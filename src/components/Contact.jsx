@@ -12,6 +12,7 @@ const Contact = () => {
   return (
     <>
       <section
+        id="contact"
         aria-labelledby="contact-heading"
         className="border-b border-neutral-900 pb-16 sm:pb-20"
       >

@@ -1,27 +1,101 @@
+import { useRef, useState } from "react";
 import { FaLinkedin, FaGithub, FaInstagram, FaFacebook } from "react-icons/fa";
+import { FiArrowUpRight, FiMenu, FiX } from "react-icons/fi";
 import logo from "../assets/logoRemove.png";
-const Navbar = () => {
-  return (
-    <nav className="mb-20 flex items-center justify-between py-6">
-      <div className="flex flex-shrink-0 items-center">
-        <img className="mx-2 w-20 cursor-pointer" src={logo} alt="logo" />
-      </div>
-      <div className="m-8 flex items-center justify-between gap-6 text-2xl">
-        <a href="https://www.linkedin.com/in/edzel-intes1998/" target="_blank">
-          <FaLinkedin className="cursor-pointer  hover:-translate-y-2 transition-all duration-300" />
-        </a>
 
-        <a href="https://github.com/inteszel143" target="_blank">
-          <FaGithub className="cursor-pointer  hover:-translate-y-2 transition-all duration-300" />
-        </a>
-        <a href="https://www.instagram.com/_zelntsprs/" target="_blank">
-          <FaInstagram className="cursor-pointer  hover:-translate-y-2 transition-all duration-300" />
-        </a>
-        <a href="https://www.facebook.com/edzelintes/" target="_blank">
-          <FaFacebook className="cursor-pointer  hover:-translate-y-2 transition-all duration-300" />
-        </a>
-      </div>
-    </nav>
+const SOCIAL_LINKS = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/edzel-intes1998/", Icon: FaLinkedin },
+  { label: "GitHub", href: "https://github.com/inteszel143", Icon: FaGithub },
+  { label: "Instagram", href: "https://www.instagram.com/_zelntsprs/", Icon: FaInstagram },
+  { label: "Facebook", href: "https://www.facebook.com/edzelintes/", Icon: FaFacebook },
+];
+
+const NAV_LINKS = [
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Technologies", href: "#technologies" },
+];
+
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef(null);
+
+  const closeMenu = () => setMenuOpen(false);
+
+  return (
+    <header
+      className="relative z-50 mb-12 px-2 pt-3 sm:mb-16 sm:px-3 sm:pt-5 lg:px-4"
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && menuOpen) {
+          closeMenu();
+          menuButton.current?.focus();
+        }
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) closeMenu();
+      }}
+    >
+      <nav
+        aria-label="Main navigation"
+        className="mx-auto max-w-6xl p-2 lg:px-4"
+      >
+        <div className="flex min-h-14 items-center justify-between gap-3">
+          <a
+            href="#home"
+            onClick={closeMenu}
+            aria-label="Edzel Intes — home"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/5 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300"
+          >
+            <img className="h-9 w-9 object-contain" src={logo} alt="" />
+          </a>
+
+          <div className="hidden items-center gap-1 lg:flex">
+            {NAV_LINKS.map(({ label, href }) => (
+              <a key={href} className="navbar-link" href={href}>{label}</a>
+            ))}
+          </div>
+
+          <div className="ml-auto flex items-center gap-2 lg:ml-0 lg:gap-4">
+            <div className="hidden items-center border-r border-white/10 pr-4 lg:flex">
+              {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} (opens in a new tab)`} className="flex h-11 w-11 items-center justify-center rounded-full text-lg text-neutral-400 transition-colors hover:bg-white/5 hover:text-green-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300">
+                  <Icon aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+            <a href="#contact" onClick={closeMenu} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-green-300 px-4 text-xs font-semibold text-neutral-950 transition-colors hover:bg-green-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 sm:px-5 sm:text-sm">
+              Let’s talk <FiArrowUpRight aria-hidden="true" className="text-base" />
+            </a>
+            <button
+              ref={menuButton}
+              type="button"
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMenuOpen((open) => !open)}
+              className="flex h-11 w-11 items-center justify-center rounded-full text-xl text-neutral-200 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300 lg:hidden"
+            >
+              {menuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
+            </button>
+          </div>
+        </div>
+
+        <div id="mobile-navigation" hidden={!menuOpen} className={menuOpen ? "mt-2 border-t border-white/10 px-2 pb-2 pt-3 lg:hidden" : "hidden"}>
+          <div className="flex flex-col gap-1">
+            {NAV_LINKS.map(({ label, href }) => (
+              <a key={href} href={href} onClick={closeMenu} className="navbar-link justify-start">{label}</a>
+            ))}
+          </div>
+          <div className="mt-3 flex items-center gap-2 border-t border-white/10 pt-3">
+            {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" onClick={closeMenu} aria-label={`${label} (opens in a new tab)`} className="flex h-11 w-11 items-center justify-center rounded-full text-xl text-neutral-400 transition-colors hover:bg-white/5 hover:text-green-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300">
+                <Icon aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+    </header>
   );
 };
 

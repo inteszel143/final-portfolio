@@ -1,15 +1,17 @@
-# Stack and contributions layout QA
+# Navbar design QA
 
-- Source visual truth: user-attached reference showing two dark cards, circular stack icons, and a contribution calendar (2048 × 546 displayed pixels).
-- Implementation: src/components/Hero.jsx; anchor target in src/components/Technologies.jsx.
-- Implementation screenshot: unavailable; no browser tool is exposed in this session.
-- Viewport, CSS size, and density normalization: not measured.
-- State: default portfolio with existing live contribution image.
-- Full-view and focused comparisons: blocked pending browser capture.
-- Fonts, spacing, colors, image fidelity, and copy: not visually verified.
-- Intentional content adaptations: existing portfolio technologies and GitHub image; no fabricated contribution count or nonfunctional year selector.
-- Validation: production build and git diff --check passed. Browser interactions and console errors not checked.
-- Comparison history: no rendered comparison performed.
-- Remaining checklist: capture desktop and mobile; compare cards and icon spacing with reference; test stack anchor, GitHub link, horizontal calendar scrolling, and image failure fallback.
+- Source visual: user-provided Vyrtual navbar screenshot (2082 × 150 original; 2048 × 148 displayed).
+- Intended adaptation: existing portfolio brand and social links, section shortcuts, translucent dark background, rounded border, fixed position.
+- Implementation screenshot: unavailable.
+- Viewport and density comparison: not performed.
+- State: initial and scrolled layouts require browser verification.
+- Full-view and focused comparison evidence: blocked; no browser tools are available in this session.
+- Fonts, spacing, colors, asset rendering, and content fidelity: implemented but not visually verified.
+- Primary interactions: anchor navigation and external social links require browser verification.
+- Console errors: not checked in a browser.
+- Automated checks: production build and ESLint passed.
+- Comparison history: no visual comparison performed.
 
 final result: blocked
+
+The image-to-code skill requires rendered visual comparison before visual QA can pass. Open the site at desktop and mobile widths, verify fixed positioning while scrolling, check anchor offsets and social links, and capture screenshots for comparison.
