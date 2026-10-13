@@ -18,7 +18,7 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 export const EXPERIENCES = [
   {
-    year: "September 2026",
+    year: "September - October 2026",
     role: "Full Stack Mobile Developer (Anchor Into Presence)",
     company: "Mindfully Evolve LLC",
     description: `I developed Anchor Into Presence, a mindfulness and meditation mobile application featuring guided meditations, daily inspiration, and meditation recommendations. My full stack work involved Flutter and Dart for the mobile app, alongside NextJS, TypeScript, MongoDB, Firebase, and AWS to support the application.`,
@@ -30,6 +30,8 @@ export const EXPERIENCES = [
       "MongoDB",
       "Firebase",
       "AWS",
+      "App In-app-purchase",
+      "Google In-app-purchase",
     ],
   },
   {
@@ -44,6 +46,7 @@ export const EXPERIENCES = [
       "Expo Router",
       "Mysql Database",
       "Laravel",
+      "RevenueCat"
     ],
   },
   {
@@ -58,6 +61,8 @@ export const EXPERIENCES = [
       "Expo Router",
       "Mysql Database",
       "Laravel",
+      "App In-app-purchase",
+      "Google In-app-purchase",
     ],
   },
   {
@@ -72,6 +77,9 @@ export const EXPERIENCES = [
       "MongoDB",
       "Expo",
       "Expo router",
+      "React Query",
+      "Zustand",
+      "RevenueCat",
     ],
   },
   {
@@ -86,6 +94,13 @@ export const EXPERIENCES = [
       "Python",
       "Postman",
       "Expo",
+      "Expo Router",
+      "RevenueCat",
+      "Zustand",
+      "React Query",
+      "App In-app-purchase",
+      "Google In-app-purchase",
+
     ],
   },
   {
@@ -124,6 +139,8 @@ export const PROJECTS = [
       "MongoDB",
       "Firebase",
       "AWS",
+      "App In-app-purchase",
+      "Google In-app-purchase",
     ],
     apple: "https://apps.apple.com/us/app/obiyen/6751270555",
     google:
@@ -134,6 +151,7 @@ export const PROJECTS = [
     title:
       "Obiyen - Manage SEO, GDPR, cookies and marketing in one powerful business platform.",
     image: obiyen,
+    live: "https://obiyen.com/da/",
     description:
       "Obiyen brings together essential business tools in one platform. Manage cookies, monitor SEO rankings, analyze websites and track performance across your digital channels - all from your mobile device.",
     technologies: [
@@ -143,6 +161,8 @@ export const PROJECTS = [
       "Laravel",
       "Expo",
       "Expo Router",
+      "App In-app-purchase",
+      "Google In-app-purchase",
     ],
     apple: "https://apps.apple.com/us/app/awork-one/id6745732464",
     google:
@@ -153,6 +173,7 @@ export const PROJECTS = [
     title:
       "CitizenOne™ - Mobile Application for Citizen Record System - (Denmark)",
     image: citizenOne,
+    live: "https://citizenone.dk/",
     description:
       "Developed a fully functional mobile application for a citizen record system in Denmark. This digital solution allows for electronic registration and secure storage of all relevant data on a user-friendly platform. The system features a central database, enabling authorized users to access critical information quickly and easily without dealing with physical documents or scattered digital files.",
     technologies: [
@@ -162,6 +183,8 @@ export const PROJECTS = [
       "Laravel",
       "Expo",
       "Expo Router",
+      "App In-app-purchase",
+      "Google In-app-purchase",
     ],
     apple: "https://apps.apple.com/us/app/citizenone/id6737061242",
     google: "https://play.google.com/store/apps/details?id=com.aworkAS.CitizenOne",
@@ -179,6 +202,8 @@ export const PROJECTS = [
       "MongoDB",
       "Postman",
       "Expo",
+      "RevenueCat",
+      "In-app-purchase",
     ],
     apple:
       "https://apps.apple.com/us/app/iweft-laundry-dry-cleaning/id6578443052?platform=iphone",
@@ -188,6 +213,7 @@ export const PROJECTS = [
   {
     title: "iMotor.app - Car Listing Mobile Application - (Dubai)",
     image: project2,
+    live: "https://imotor.app/",
     description:
       "A fully functional mobile application for listing and exploring various vehicles, including cars, motorcycles, trucks, and boats, all based in Dubai. This app provides a user-friendly platform for both buyers and sellers to interact and conduct transactions seamlessly.",
     technologies: [
@@ -197,6 +223,8 @@ export const PROJECTS = [
       "Python",
       "Postman",
       "Expo",
+      "RevenueCat",
+      "In-app-purchase",
     ],
     apple:
       "https://apps.apple.com/us/app/imotor-buy-sell-in-the-uae/id6746357123",

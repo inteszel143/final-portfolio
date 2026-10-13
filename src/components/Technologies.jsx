@@ -1,6 +1,6 @@
 import { RiReactjsLine } from "react-icons/ri";
-import { SiMongodb } from "react-icons/si";
-import { FaNodeJs } from "react-icons/fa";
+import { SiFlutter, SiMongodb, SiMysql, SiNextdotjs, SiSupabase } from "react-icons/si";
+import { FaAws, FaNodeJs } from "react-icons/fa";
 import { SiExpo } from "react-icons/si";
 import { motion } from "framer-motion";
 import { SiTailwindcss } from "react-icons/si";
@@ -43,7 +43,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4 cursor-pointer"
         >
-          <RiReactjsLine className="text-7xl text-cyan-400" />
+          <RiReactjsLine title="React" className="text-7xl text-cyan-400" />
         </motion.div>
         <motion.div
           variants={iconVariants(3)}
@@ -104,6 +104,23 @@ const Technologies = () => {
         >
           <RiFirebaseFill className="text-7xl text-yellow-500" />
         </motion.div>
+        {[
+          { name: "Flutter", Icon: SiFlutter, color: "text-sky-400", duration: 3 },
+          { name: "AWS", Icon: FaAws, color: "text-orange-400", duration: 4.5 },
+          { name: "NextJS", Icon: SiNextdotjs, color: "text-white", duration: 2.5 },
+          { name: "MySQL", Icon: SiMysql, color: "text-sky-500", duration: 5 },
+          { name: "Supabase", Icon: SiSupabase, color: "text-emerald-400", duration: 3.5 },
+        ].map(({ name, Icon, color, duration }) => (
+          <motion.div
+            key={name}
+            variants={iconVariants(duration)}
+            initial="initial"
+            animate="animate"
+            className="rounded-2xl border-4 border-neutral-800 p-4 cursor-pointer"
+          >
+            <Icon title={name} className={`text-7xl ${color}`} />
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );

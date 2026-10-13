@@ -1,9 +1,10 @@
 import { PROJECTS } from "../constants";
-import { FaApple, FaGithub } from "react-icons/fa";
+import { FaApple, FaGithub, FaGlobe } from "react-icons/fa";
 import { BsGooglePlay } from "react-icons/bs";
 import { motion, useReducedMotion } from "framer-motion";
 
 const PROJECT_LINKS = [
+  { key: "live", label: "Live Website", Icon: FaGlobe },
   { key: "apple", label: "App Store", Icon: FaApple },
   { key: "google", label: "Google Play", Icon: BsGooglePlay },
   { key: "github", label: "GitHub", Icon: FaGithub },

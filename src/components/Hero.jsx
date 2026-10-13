@@ -2,6 +2,7 @@ import { BACKEND, FRONTEND, HERO_CONTENT } from "../constants";
 import profilePic from "../assets/edzelHero.png";
 import resumePdf from "../assets/resume/Intes Resume.pdf";
 import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
 
 const skillGroups = [
   { title: "Frontend", description: FRONTEND.replace(/^Frontend:\s*/, "") },
@@ -10,6 +11,7 @@ const skillGroups = [
 
 const Hero = () => {
   const reduceMotion = useReducedMotion();
+  const [contributionsUnavailable, setContributionsUnavailable] = useState(false);
 
   return (
     <section
@@ -77,6 +79,55 @@ const Hero = () => {
           </div>
         ))}
       </div>
+      <section
+        aria-labelledby="github-contributions-heading"
+        className="mx-auto mt-6 max-w-6xl rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 sm:p-6"
+      >
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2
+              id="github-contributions-heading"
+              className="text-base font-semibold text-green-300"
+            >
+              GitHub Contributions
+            </h2>
+            <p className="mt-2 text-sm text-neutral-400">
+              My coding activity over the last year.
+            </p>
+          </div>
+          <a
+            href="https://github.com/inteszel143"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-medium text-green-300 hover:text-green-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+          >
+            @inteszel143 ↗
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
+        {contributionsUnavailable ? (
+          <p role="status" className="mt-5 text-sm leading-7 text-neutral-400">
+            The contribution calendar is temporarily unavailable. Visit my GitHub
+            profile to see my latest activity.
+          </p>
+        ) : (
+          <div
+            role="region"
+            aria-label="GitHub contribution calendar, scroll horizontally to see the full year"
+            tabIndex={0}
+            className="mt-5 overflow-x-auto rounded-lg border border-neutral-800 bg-neutral-950 p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+          >
+            <img
+              src="https://ghchart.rshah.org/inteszel143"
+              alt="GitHub contribution calendar for inteszel143 over the last year"
+              loading="lazy"
+              decoding="async"
+              onError={() => setContributionsUnavailable(true)}
+              className="mx-auto block w-full min-w-[720px] invert hue-rotate-180"
+            />
+          </div>
+        )}
+      </section>
     </section>
   );
 };
