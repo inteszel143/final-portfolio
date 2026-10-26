@@ -6,6 +6,7 @@ import project2 from "../assets/projects/imotor_app.png";
 import project3 from "../assets/projects/trends.png";
 import project4 from "../assets/projects/DavcuMobile.png";
 import vyrtual from "../assets/projects/web/vyrtual.png";
+import anchorIntoPresenceAdmin from "../assets/projects/web/Anchor Into Presence Admin.png";
 
 export const HERO_CONTENT = `I'm a full stack developer building mobile apps and websites with React Native, Expo, Flutter, React, and Next.js.
 
@@ -130,6 +131,22 @@ export const EXPERIENCES = [
 ];
 
 export const PROJECTS = [
+  {
+    category: "web",
+    title: "Anchor Into Presence Admin - Mindfulness & Meditation Web Platform",
+    image: anchorIntoPresenceAdmin,
+    description:
+      "A web platform for Anchor Into Presence with a public landing experience and admin sign-in. It supports the mindfulness app with guided practices, account access, and tools for managing the product from the browser. Built with Next.js and TypeScript, and backed by MongoDB, Firebase, and AWS.",
+    technologies: [
+      "NextJS",
+      "TypeScript",
+      "MongoDB",
+      "Firebase",
+      "AWS",
+    ],
+    live: "https://admin.anchorintopresence.net/",
+    github: "https://github.com/inteszel143/anchor-into-presence-backend",
+  },
   {
     category: "web",
     title: "Vyrtual - Virtual Office for Remote Employees and Freelancers",
