@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PROJECTS } from "../constants";
 import { FaApple, FaGithub, FaGlobe } from "react-icons/fa";
 import { BsGooglePlay } from "react-icons/bs";
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const PROJECT_LINKS = [
   { key: "live", label: "Live Website", Icon: FaGlobe },
@@ -42,7 +42,7 @@ const Project = () => {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="border-b border-neutral-900 pb-16 sm:pb-20"
+      className="scroll-mt-20 border-b border-neutral-900 pb-16 sm:pb-20"
     >
       <motion.h2
         id="projects-heading"
@@ -67,7 +67,7 @@ const Project = () => {
             tabIndex={activeCategory === id ? 0 : -1}
             onClick={() => setActiveCategory(id)}
             onKeyDown={(event) => handleTabKeyDown(event, index)}
-            className={`inline-flex min-h-11 items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 sm:px-6 ${
+            className={`inline-flex min-h-11 items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-[color,background-color,border-color] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 sm:px-6 ${
               activeCategory === id
                 ? "border-green-400/50 bg-green-400/10 text-green-300"
                 : "border-neutral-800 bg-neutral-900/40 text-neutral-400 hover:border-neutral-600 hover:text-neutral-200"
@@ -78,28 +78,31 @@ const Project = () => {
         ))}
       </div>
 
-      {PROJECT_TABS.map(({ id }) => (
-      <div
-        key={id}
+      <AnimatePresence mode="wait">
+      <motion.div
+        key={activeCategory}
         role="tabpanel"
-        id={`project-panel-${id}`}
-        aria-labelledby={`project-tab-${id}`}
-        hidden={activeCategory !== id}
+        id={`project-panel-${activeCategory}`}
+        aria-labelledby={`project-tab-${activeCategory}`}
         tabIndex={0}
-        className={activeCategory === id ? "mx-auto grid max-w-6xl gap-8 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 sm:gap-10" : "hidden"}
+        initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={reduceMotion ? undefined : { opacity: 0, y: -12 }}
+        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+        className="mx-auto grid max-w-6xl gap-8 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 sm:gap-10"
       >
-        {activeCategory === id && filteredProjects.length === 0 && (
+        {filteredProjects.length === 0 && (
           <p className="rounded-2xl border border-neutral-800 bg-neutral-900/40 px-6 py-16 text-center text-neutral-400">
-            No {id} projects added yet.
+            No {activeCategory} projects added yet.
           </p>
         )}
-        {activeCategory === id && filteredProjects.map((project) => (
+        {filteredProjects.map((project, index) => (
           <motion.article
             key={project.title}
+            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.4 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.35, delay: reduceMotion ? 0 : index * 0.05 }}
             className="min-w-0 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-4 sm:p-6 lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-center lg:gap-8 lg:p-8"
           >
             <div className="overflow-hidden rounded-xl bg-white">
@@ -160,8 +163,8 @@ const Project = () => {
             </div>
           </motion.article>
         ))}
-      </div>
-      ))}
+      </motion.div>
+      </AnimatePresence>
     </section>
   );
 };

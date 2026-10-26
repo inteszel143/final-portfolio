@@ -7,6 +7,11 @@ import project3 from "../assets/projects/trends.png";
 import project4 from "../assets/projects/DavcuMobile.png";
 import vyrtual from "../assets/projects/web/vyrtual.png";
 import anchorIntoPresenceAdmin from "../assets/projects/web/Anchor Into Presence Admin.png";
+import aworkLogo from "../assets/logo/AWORK.png";
+import mindfullyEvolveLogo from "../assets/logo/TINA.png";
+import infinitLogo from "../assets/logo/Infinit.jpg";
+import universityOfMindanaoLogo from "../assets/logo/UM.png";
+import phVirtualTeamLogo from "../assets/logo/PHVirtualTeam..jpg";
 
 export const HERO_CONTENT = `I'm a full stack developer building mobile apps and websites with React Native, Expo, Flutter, React, and Next.js.
 
@@ -26,6 +31,7 @@ export const EXPERIENCES = [
     year: "September - October 2026",
     role: "Full Stack Mobile Developer (Anchor Into Presence)",
     company: "Mindfully Evolve LLC",
+    logo: mindfullyEvolveLogo,
     description: `I developed Anchor Into Presence, a mindfulness and meditation mobile application featuring guided meditations, daily inspiration, and meditation recommendations. My full stack work involved Flutter and Dart for the mobile app, alongside NextJS, TypeScript, MongoDB, Firebase, and AWS to support the application.`,
     technologies: [
       "Flutter",
@@ -43,6 +49,7 @@ export const EXPERIENCES = [
     year: "August 2024 - September 2026",
     role: "Front-end Mobile Developer (Obiyen)",
     company: "AWORK A/S Company Denmark",
+    logo: aworkLogo,
     description: `I developed a mobile application for a analytics. This application was built using React Native, TypeScript, and Expo. Implemented RESTful APIs with a Laravel backend and integrated with MySQL databases.`,
     technologies: [
       "Typescript",
@@ -58,6 +65,7 @@ export const EXPERIENCES = [
     year: "August 2024 - September 2026",
     role: "Front-end Mobile Developer (CitizenOne™)",
     company: "AWORK A/S Company Denmark",
+    logo: aworkLogo,
     description: `I developed a comprehensive mobile application for a citizen record system in Denmark. This app provides a complete digital solution for electronic registration, secure data storage, and easy access to relevant information for authorized users. The system eliminates the need for physical documents or scattered digital files, ensuring that all necessary data is available when needed. The app was built using React Native, TypeScript, and Expo. Implemented RESTful APIs with a Laravel backend and integrated with MySQL databases.`,
     technologies: [
       "Typescript",
@@ -74,6 +82,7 @@ export const EXPERIENCES = [
     year: "May 2024 - August 2024",
     role: "Full stack Mobile Developer (iWeft)",
     company: "PH Virtual Team.",
+    logo: phVirtualTeamLogo,
     description: `I developed a comprehensive mobile application for booking laundry services in Dubai. This app streamlines the process of scheduling, managing, and tracking laundry services for users, providing a convenient solution for both customers and laundry service providers using Typescript, React Native, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases.`,
     technologies: [
       "Typescript",
@@ -91,6 +100,7 @@ export const EXPERIENCES = [
     year: "December 2023 - May 2024",
     role: "Front-end Mobile Developer (iMotor.app)",
     company: "PH Virtual Team.",
+    logo: phVirtualTeamLogo,
     description: `I developed a versatile mobile application for listing and exploring various vehicles, including cars, motorcycles, trucks, and boats, all based in Dubai. This app provides a user-friendly platform for both buyers and sellers to interact and conduct transactions seamlessly.`,
     technologies: [
       "Javascript",
@@ -112,6 +122,7 @@ export const EXPERIENCES = [
     year: "July 2023 - September 2023",
     role: "Front-end Mobile Developer (TrendingCast)",
     company: "On Job Training",
+    logo: infinitLogo,
     description: `Developed a social media app where I've taken inspiration from Twitter, featuring a user-friendly design reminiscent of your favorite short-form blogging platform.`,
     technologies: ["Javascript", "React Native", "Tailwind CSS", "Expo"],
   },
@@ -119,6 +130,7 @@ export const EXPERIENCES = [
     year: "May 2023 - Last Update",
     role: "Full Stack Mobile Developer (Davcu)",
     company: "Capstone Project",
+    logo: universityOfMindanaoLogo,
     description: `A mobile e-commerce app for native handicrafts in Davao City that allows users to purchase native products and promote our handmade, local products. This app caters to three types of users: buyers, sellers, and riders, and it also provides an interface for searching, comparing, and tracking orders.`,
     technologies: [
       "Javascript",

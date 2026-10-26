@@ -8,7 +8,7 @@ const Experience = () => {
     <section
       id="experience"
       aria-labelledby="experience-heading"
-      className="border-b border-neutral-900 pb-16 sm:pb-20"
+      className="scroll-mt-20 border-b border-neutral-900 pb-16 sm:pb-20"
     >
       <motion.h2
         id="experience-heading"
@@ -26,9 +26,9 @@ const Experience = () => {
           <motion.li
             key={`${experience.company}-${experience.role}`}
             whileInView={{ opacity: 1, y: 0 }}
-            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.4 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+            viewport={{ once: true, amount: 0.02 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="relative border-l border-neutral-800 pb-10 pl-6 last:pb-0 sm:pl-8 md:grid md:grid-cols-[11rem_minmax(0,1fr)] md:gap-8 md:pb-12"
           >
             <span
@@ -42,9 +42,19 @@ const Experience = () => {
               <h3 className="break-words text-lg font-semibold leading-snug text-neutral-100 sm:text-xl">
                 {experience.role}
               </h3>
-              <p className="mt-2 text-sm font-medium leading-relaxed text-green-300">
-                {experience.company}
-              </p>
+              <div className="mt-2 flex items-center gap-3">
+                {experience.logo && (
+                  <img
+                    src={experience.logo}
+                    alt={`${experience.company} logo`}
+                    className="h-10 w-10 shrink-0 rounded-md bg-white object-contain p-1"
+                    loading="lazy"
+                  />
+                )}
+                <p className="text-sm font-medium leading-relaxed text-green-300">
+                  {experience.company}
+                </p>
+              </div>
               <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base sm:leading-7">
                 {experience.description}
               </p>

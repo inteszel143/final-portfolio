@@ -14,7 +14,7 @@ const Contact = () => {
       <section
         id="contact"
         aria-labelledby="contact-heading"
-        className="border-b border-neutral-900 pb-16 sm:pb-20"
+        className="scroll-mt-20 border-b border-neutral-900 pb-16 sm:pb-20"
       >
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}

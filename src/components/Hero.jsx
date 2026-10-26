@@ -28,7 +28,7 @@ const Hero = () => {
     <section
       id="home"
       aria-labelledby="intro-heading"
-      className="border-b border-neutral-900 pb-16 sm:pb-20"
+      className="scroll-mt-20 border-b border-neutral-900 pb-16 sm:pb-20"
     >
       <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-12">
         <motion.div
