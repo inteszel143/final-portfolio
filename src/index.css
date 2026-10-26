@@ -10,7 +10,7 @@
 
 html {
   overflow-x: clip;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 7rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -21,6 +21,35 @@ html {
 
 @layer components {
   .navbar-link {
-    @apply inline-flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-medium text-neutral-300 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300;
+    @apply inline-flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-medium text-neutral-300 transition-colors hover:bg-white/10 hover:text-green-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300;
+  }
+}
+
+.project-card:focus-within {
+  border-color: rgb(74 222 128 / 45%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    border-color: transparent;
+    box-shadow: 0 16px 40px rgb(0 0 0 / 25%), 0 0 24px rgb(74 222 128 / 6%);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .project-card {
+    transition: translate 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+  }
+
+  .project-card:hover {
+    translate: 0 -6px;
+  }
+
+  .project-card-image {
+    transition: transform 350ms ease;
+  }
+
+  .project-card:hover .project-card-image {
+    transform: scale(1.025);
   }
 }

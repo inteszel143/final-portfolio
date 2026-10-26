@@ -16,7 +16,7 @@ const Experience = () => {
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="my-20 text-center text-4xl"
+        className="my-20 text-center text-3xl sm:text-4xl"
       >
         Experience
       </motion.h2>
@@ -29,7 +29,7 @@ const Experience = () => {
             initial={reduceMotion ? false : { opacity: 0, y: 24 }}
             viewport={{ once: true, amount: 0.02 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="relative border-l border-neutral-800 pb-10 pl-6 last:pb-0 sm:pl-8 md:grid md:grid-cols-[11rem_minmax(0,1fr)] md:gap-8 md:pb-12"
+            className="relative border-l border-neutral-800 pb-10 pl-4 last:pb-0 sm:pl-8 md:grid md:grid-cols-[11rem_minmax(0,1fr)] md:gap-8 md:pb-12"
           >
             <span
               aria-hidden="true"
@@ -38,7 +38,7 @@ const Experience = () => {
             <p className="mb-3 text-sm leading-6 text-neutral-400 md:mb-0">
               {experience.year}
             </p>
-            <article className="min-w-0 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 sm:p-6 md:-mt-5">
+            <article className="min-w-0 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-4 sm:p-6 md:-mt-5">
               <h3 className="break-words text-lg font-semibold leading-snug text-neutral-100 sm:text-xl">
                 {experience.role}
               </h3>
@@ -51,7 +51,7 @@ const Experience = () => {
                     loading="lazy"
                   />
                 )}
-                <p className="text-sm font-medium leading-relaxed text-green-300">
+                <p className="min-w-0 break-words text-sm font-medium leading-relaxed text-green-300">
                   {experience.company}
                 </p>
               </div>

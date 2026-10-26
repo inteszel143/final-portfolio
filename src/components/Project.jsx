@@ -50,7 +50,7 @@ const Project = () => {
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mb-8 mt-20 text-center text-4xl"
+        className="mb-8 mt-20 text-center text-3xl sm:text-4xl"
       >
         Projects
       </motion.h2>
@@ -103,7 +103,7 @@ const Project = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.35, delay: reduceMotion ? 0 : index * 0.05 }}
-            className="min-w-0 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-4 sm:p-6 lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-center lg:gap-8 lg:p-8"
+            className="project-card min-w-0 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-4 sm:p-6 lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-center lg:gap-8 lg:p-8"
           >
             <div className="overflow-hidden rounded-xl bg-white">
               <img
@@ -113,7 +113,7 @@ const Project = () => {
                 alt={`${project.title} app preview`}
                 loading="lazy"
                 decoding="async"
-                className="aspect-[4/3] w-full object-contain"
+                className="project-card-image aspect-[4/3] w-full object-contain"
               />
             </div>
 

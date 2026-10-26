@@ -23,7 +23,7 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="mx-auto mb-10 mt-20 max-w-2xl text-center"
         >
-          <h2 id="contact-heading" className="text-4xl">
+          <h2 id="contact-heading" className="text-3xl sm:text-4xl">
             Get in Touch
           </h2>
           <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base">

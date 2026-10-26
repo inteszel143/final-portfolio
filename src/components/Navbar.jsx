@@ -12,6 +12,7 @@ const SOCIAL_LINKS = [
 ];
 
 const NAV_LINKS = [
+  { label: "Home", href: "#home" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Technologies", href: "#technologies" },
@@ -36,6 +37,7 @@ const scrollToHash = (hash, reduceMotion) => {
 const Navbar = () => {
   const reduceMotion = useReducedMotion();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [activeHash, setActiveHash] = useState("#home");
   const menuButton = useRef(null);
 
@@ -52,25 +54,51 @@ const Navbar = () => {
 
   useEffect(() => {
     const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
-    if (!sections.length) return undefined;
+    let frameId = null;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) setActiveHash(`#${visible.target.id}`);
-      },
-      { rootMargin: "-20% 0px -55% 0px", threshold: [0.1, 0.25, 0.5, 0.75] },
-    );
+    const updateScrollState = () => {
+      frameId = null;
+      setIsScrolled(window.scrollY >= window.innerHeight * 0.2);
+      if (!sections.length) return;
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+      // Track section starts, rather than visible percentages of tall sections.
+      const activationLine = Math.max(120, window.innerHeight * 0.3);
+      let activeSection = sections[0];
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= activationLine) {
+          activeSection = section;
+        }
+      }
+
+      // Short final sections may never reach the activation line.
+      if (window.scrollY > 0 &&
+          window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+        activeSection = sections[sections.length - 1];
+      }
+      setActiveHash(`#${activeSection.id}`);
+    };
+
+    const scheduleUpdate = () => {
+      if (frameId === null) frameId = window.requestAnimationFrame(updateScrollState);
+    };
+
+    updateScrollState();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    const resizeObserver = new ResizeObserver(scheduleUpdate);
+    sections.forEach((section) => resizeObserver.observe(section));
+
+    return () => {
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      resizeObserver.disconnect();
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+    };
   }, []);
 
   return (
     <header
-      className="relative z-50 mb-12 px-2 pt-3 sm:mb-16 sm:px-3 sm:pt-5 lg:px-4"
+      className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4"
       onKeyDown={(event) => {
         if (event.key === "Escape" && menuOpen) {
           closeMenu();
@@ -83,16 +111,16 @@ const Navbar = () => {
     >
       <nav
         aria-label="Main navigation"
-        className="mx-auto max-w-6xl p-2 lg:px-4"
+        className={`mx-auto max-h-[calc(100dvh-2rem)] max-w-[1600px] overflow-y-auto border px-3 py-2 text-neutral-300 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 motion-reduce:transition-none sm:px-6 sm:py-3 ${isScrolled || menuOpen ? "border-white/10 bg-neutral-950/60 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_4px_24px_rgba(0,0,0,0.12)]" : "border-transparent bg-transparent backdrop-blur-none shadow-none"} ${menuOpen ? "rounded-[2rem] lg:rounded-full" : "rounded-full"}`}
       >
         <div className="flex min-h-14 items-center justify-between gap-3">
           <a
             href="#home"
             onClick={(event) => handleSectionClick(event, "#home")}
             aria-label="Edzel Intes — home"
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/5 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300"
+            className="flex shrink-0 items-center gap-2 rounded-full pr-2 transition-opacity hover:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300"
           >
-            <img className="h-9 w-9 object-contain" src={logo} alt="" />
+            <img className="h-10 w-10 object-contain sm:h-12 sm:w-12" src={logo} alt="" />
           </a>
 
           <LayoutGroup>
@@ -100,7 +128,7 @@ const Navbar = () => {
               {NAV_LINKS.map(({ label, href }) => (
                 <a
                   key={href}
-                  className={`navbar-link relative ${activeHash === href ? "text-white" : ""}`}
+                  className={`navbar-link relative ${activeHash === href ? "text-green-300" : ""}`}
                   href={href}
                   aria-current={activeHash === href ? "true" : undefined}
                   onClick={(event) => handleSectionClick(event, href)}
@@ -122,10 +150,10 @@ const Navbar = () => {
             </div>
           </LayoutGroup>
 
-          <div className="ml-auto flex items-center gap-2 lg:ml-0 lg:gap-4">
-            <div className="hidden items-center border-r border-white/10 pr-4 lg:flex">
+          <div className="ml-auto flex items-center gap-2 lg:ml-0 lg:gap-2 xl:gap-4">
+            <div className="hidden items-center border-r border-white/10 pr-3 xl:flex">
               {SOCIAL_LINKS.map(({ label, href, Icon }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} (opens in a new tab)`} className="flex h-11 w-11 items-center justify-center rounded-full text-lg text-neutral-400 transition-colors hover:bg-white/5 hover:text-green-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300">
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} (opens in a new tab)`} className="flex h-11 w-11 items-center justify-center rounded-full text-lg text-neutral-400 transition-colors hover:bg-white/10 hover:text-green-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300">
                   <Icon aria-hidden="true" />
                 </a>
               ))}
@@ -159,7 +187,7 @@ const Navbar = () => {
                 href={href}
                 aria-current={activeHash === href ? "true" : undefined}
                 onClick={(event) => handleSectionClick(event, href)}
-                className={`navbar-link justify-start ${activeHash === href ? "bg-white/5 text-white" : ""}`}
+                className={`navbar-link justify-start ${activeHash === href ? "bg-white/10 text-green-300" : ""}`}
               >
                 {label}
               </a>
@@ -167,7 +195,7 @@ const Navbar = () => {
           </div>
           <div className="mt-3 flex items-center gap-2 border-t border-white/10 pt-3">
             {SOCIAL_LINKS.map(({ label, href, Icon }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" onClick={closeMenu} aria-label={`${label} (opens in a new tab)`} className="flex h-11 w-11 items-center justify-center rounded-full text-xl text-neutral-400 transition-colors hover:bg-white/5 hover:text-green-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300">
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" onClick={closeMenu} aria-label={`${label} (opens in a new tab)`} className="flex h-11 w-11 items-center justify-center rounded-full text-xl text-neutral-400 transition-colors hover:bg-white/10 hover:text-green-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-300">
                 <Icon aria-hidden="true" />
               </a>
             ))}
