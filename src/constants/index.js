@@ -7,7 +7,7 @@ import project3 from "../assets/projects/trends.png";
 import project4 from "../assets/projects/DavcuMobile.png";
 import vyrtual from "../assets/projects/web/vyrtual.png";
 import anchorIntoPresenceAdmin from "../assets/projects/web/Anchor Into Presence Admin.png";
-import aworkLogo from "../assets/logo/AWORK.png";
+import aworkLogo from "../assets/logo/AWORK.jpeg";
 import mindfullyEvolveLogo from "../assets/logo/TINA.png";
 import infinitLogo from "../assets/logo/Infinit.jpg";
 import universityOfMindanaoLogo from "../assets/logo/UM.png";
