@@ -13,9 +13,9 @@ import infinitLogo from "../assets/logo/Infinit.jpg";
 import universityOfMindanaoLogo from "../assets/logo/UM.png";
 import phVirtualTeamLogo from "../assets/logo/PHVirtualTeam..jpg";
 
-export const HERO_CONTENT = `I'm a full stack developer building mobile apps and websites with React Native, Expo, Flutter, React, and Next.js.
+export const HERO_CONTENT = `Im a full-stack developer specializing in mobile app and web development using React Native, Expo, Flutter, React, and Next.js.
 
-I enjoy turning ideas and designs into useful products, from iOS and Android apps to responsive web experiences. I’m always learning and finding better ways to bring those ideas to life.`;
+I enjoy turning ideas and designs into practical, user-friendly products, from iOS and Android applications to modern, responsive websites. I’m passionate about solving technical challenges, learning new technologies, and building reliable digital experiences that bring ideas to life.`;
 
 export const FRONTEND = `Frontend: React, React Native, HTML, CSS, Bootstrap, Javascript, Tailwind CSS, React Query and Zustand.`;
 export const BACKEND = `Backend: Node JS, Express JS, MongoDB, Firebase, Laravel, PHP, SQL or MySQL.`;
