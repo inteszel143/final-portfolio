@@ -1,11 +1,23 @@
 import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/edzelHero.png";
+import davaoOneLogo from "../assets/logo/davaoone.png";
+import kapeGoLogo from "../assets/logo/KapeGo.png";
 import resumePdf from "../assets/resume/Intes Resume.pdf";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import { FaAws } from "react-icons/fa";
+import { FiSmartphone } from "react-icons/fi";
 import { FiArrowUpRight, FiArrowRight } from "react-icons/fi";
-import { SiTypescript, SiReact, SiExpo, SiNextdotjs, SiNodedotjs, SiFlutter, SiFirebase, SiMongodb } from "react-icons/si";
+import {
+  SiTypescript,
+  SiReact,
+  SiExpo,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiFlutter,
+  SiFirebase,
+  SiMongodb,
+} from "react-icons/si";
 
 const coreStack = [
   { name: "React Native", Icon: SiReact, color: "text-cyan-400" },
@@ -22,7 +34,8 @@ const coreStack = [
 
 const Hero = () => {
   const reduceMotion = useReducedMotion();
-  const [contributionsUnavailable, setContributionsUnavailable] = useState(false);
+  const [contributionsUnavailable, setContributionsUnavailable] =
+    useState(false);
 
   return (
     <section
@@ -44,7 +57,7 @@ const Hero = () => {
             id="intro-heading"
             className="text-4xl font-semibold leading-tight tracking-tight text-neutral-100 sm:text-5xl lg:text-6xl"
           >
-            Hello, I’m <span className="block">Edzel Intes</span>
+            <span className="block">Edzel Intes</span>
           </h1>
           <div className="mt-6 max-w-xl space-y-4 text-sm leading-7 text-neutral-400 sm:text-base sm:leading-7">
             {HERO_CONTENT.split(/\n\s*\n/).map((paragraph) => (
@@ -87,7 +100,10 @@ const Hero = () => {
           transition={{ duration: reduceMotion ? 0 : 0.5 }}
           className="flex min-w-0 flex-col rounded-3xl border border-neutral-800 bg-[#161616] p-6 sm:p-7"
         >
-          <h2 id="core-stack-heading" className="text-lg font-semibold text-neutral-100">
+          <h2
+            id="core-stack-heading"
+            className="text-lg font-semibold text-neutral-100"
+          >
             Core stack
           </h2>
           <ul className="my-6 grid max-w-sm grid-cols-4 gap-3">
@@ -114,15 +130,23 @@ const Hero = () => {
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.1 }}
+          transition={{
+            duration: reduceMotion ? 0 : 0.5,
+            delay: reduceMotion ? 0 : 0.1,
+          }}
           className="flex min-w-0 flex-col justify-center rounded-3xl border border-neutral-800 bg-[#161616] p-6 sm:p-8"
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <h2 id="github-contributions-heading" className="text-lg font-semibold text-neutral-100">
+              <h2
+                id="github-contributions-heading"
+                className="text-lg font-semibold text-neutral-100"
+              >
                 GitHub Contributions
               </h2>
-              <p className="mt-1 text-sm text-neutral-400">My coding activity over the last year.</p>
+              <p className="mt-1 text-sm text-neutral-400">
+                My coding activity over the last year.
+              </p>
             </div>
             <a
               href="https://github.com/inteszel143"
@@ -135,9 +159,12 @@ const Hero = () => {
             </a>
           </div>
           {contributionsUnavailable ? (
-            <p role="status" className="mt-6 text-sm leading-7 text-neutral-400">
-              The contribution calendar is temporarily unavailable. Visit my GitHub
-              profile to see my latest activity.
+            <p
+              role="status"
+              className="mt-6 text-sm leading-7 text-neutral-400"
+            >
+              The contribution calendar is temporarily unavailable. Visit my
+              GitHub profile to see my latest activity.
             </p>
           ) : (
             <div
@@ -158,6 +185,173 @@ const Hero = () => {
           )}
         </motion.section>
       </div>
+
+      <motion.section
+        id="personal-app"
+        aria-labelledby="personal-app-heading"
+        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5 }}
+        className="mx-auto mt-5 flex max-w-6xl flex-col gap-6 rounded-3xl border border-neutral-800 bg-[#161616] p-6 sm:p-8"
+      >
+        <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+          <img
+            src={davaoOneLogo}
+            alt="DavaoOne app logo"
+            width={160}
+            height={160}
+            loading="lazy"
+            decoding="async"
+            className="h-32 w-32 shrink-0 rounded-2xl object-contain sm:h-40 sm:w-40"
+          />
+          <div className="min-w-0 text-center sm:text-left">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+              <p className="text-sm font-medium text-green-300">Personal App · In Progress</p>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/20 bg-sky-400/5 px-2.5 py-1 text-xs font-medium text-sky-300">
+                <FiSmartphone aria-hidden="true" /> Mobile App
+              </span>
+            </div>
+            <h2
+              id="personal-app-heading"
+              className="mt-1 text-xl font-semibold leading-snug text-neutral-100 sm:text-2xl"
+            >
+              DavaoOne - Built for good governance, designed for Davaoeños.
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base">
+              DavaoOne is the official mobile application developed in
+              partnership with the Local Government of Davao City to bring
+              public service closer to every Davaoeños.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-neutral-400 sm:text-base">
+              Designed as a digital gateway to the city, the app empowers
+              citizens through accessible information, timely updates, and
+              seamless navigation of city services.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-neutral-400 sm:text-base">
+              This app was created to promote transparency, good governance, and
+              citizen empowerment by making essential public information and
+              services more accessible through a centralized digital platform.
+            </p>
+            <p className="mt-3 text-sm font-medium text-amber-300">
+              Currently in development; not yet live or available to download.
+            </p>
+            <h3 className="mt-5 text-sm font-semibold text-neutral-200 sm:text-base">
+              With DavaoOne, you can:
+            </h3>
+            <ul className="mt-3 space-y-2 text-left text-sm leading-7 text-neutral-400 sm:text-base">
+              <li>
+                🔍 Find clear guides and shortcuts to avail city services with
+                ease
+              </li>
+              <li>
+                📰 Browse the latest city news and official updates all in one
+                place
+              </li>
+              <li>☎️ Quickly access emergency hotlines for help</li>
+              <li>🚨 Report community issues directly from your phone</li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-col items-center gap-5 border-t border-neutral-800 pt-6 sm:flex-row sm:items-start sm:pt-7">
+          <img
+            src={kapeGoLogo}
+            alt="KapeGo app logo"
+            width={128}
+            height={128}
+            loading="lazy"
+            decoding="async"
+            className="h-24 w-24 shrink-0 rounded-2xl object-contain sm:h-32 sm:w-32"
+          />
+          <div className="min-w-0 text-center sm:text-left">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+              <p className="text-sm font-medium text-green-300">Personal App · In Progress</p>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/20 bg-sky-400/5 px-2.5 py-1 text-xs font-medium text-sky-300">
+                <FiSmartphone aria-hidden="true" /> Mobile App
+              </span>
+            </div>
+            <h3 className="mt-1 text-xl font-semibold leading-snug text-neutral-100 sm:text-2xl">
+              KapeGo – Your City. Your Coffee.
+            </h3>
+            <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base">
+              KapeGo is a mobile platform designed to connect coffee lovers with
+              local coffee shops in Midsayap, Cotabato, making it easier to
+              discover new places, explore menus, and support local businesses.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-neutral-400 sm:text-base">
+              Designed as a convenient digital destination for the local coffee
+              community, KapeGo helps customers find coffee shops, check
+              available drinks and prices, explore special promotions, and
+              discover their next favorite coffee spot—all in one place.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-neutral-400 sm:text-base">
+              The platform also empowers local coffee shop owners by providing a
+              digital space to showcase their businesses, promote their
+              products, and reach more potential customers.
+            </p>
+            <p className="mt-3 text-sm font-medium text-amber-300">
+              Currently in development; not yet live or available to download.
+            </p>
+            <h4 className="mt-5 text-sm font-semibold text-neutral-200 sm:text-base">
+              With KapeGo, you can:
+            </h4>
+            <ul className="mt-3 space-y-2 text-left text-sm leading-7 text-neutral-400 sm:text-base">
+              <li>
+                ☕{" "}
+                <strong className="font-semibold text-neutral-200">
+                  Discover Local Coffee Shops
+                </strong>{" "}
+                — Explore coffee shops around Midsayap and find your next
+                favorite spot.
+              </li>
+              <li>
+                📋{" "}
+                <strong className="font-semibold text-neutral-200">
+                  Explore Menus and Prices
+                </strong>{" "}
+                — Browse available drinks, food items, and prices before
+                visiting.
+              </li>
+              <li>
+                📍{" "}
+                <strong className="font-semibold text-neutral-200">
+                  Find Coffee Near You
+                </strong>{" "}
+                — Check shop locations and get directions to participating
+                coffee shops.
+              </li>
+              <li>
+                🎉{" "}
+                <strong className="font-semibold text-neutral-200">
+                  Discover Promotions
+                </strong>{" "}
+                — Find special offers, discounts, and featured products from
+                local vendors.
+              </li>
+              <li>
+                ❤️{" "}
+                <strong className="font-semibold text-neutral-200">
+                  Save Your Favorites
+                </strong>{" "}
+                — Keep track of the coffee shops you love.
+              </li>
+              <li>
+                🏪{" "}
+                <strong className="font-semibold text-neutral-200">
+                  Support Local Businesses
+                </strong>{" "}
+                — Help local coffee shops gain visibility and connect with more
+                customers.
+              </li>
+            </ul>
+            <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base">
+              KapeGo aims to bring Midsayap&apos;s growing coffee community
+              closer together through a simple, accessible, and convenient
+              digital experience.
+            </p>
+          </div>
+        </div>
+      </motion.section>
     </section>
   );
 };
