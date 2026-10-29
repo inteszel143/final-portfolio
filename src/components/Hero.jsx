@@ -199,11 +199,11 @@ const Hero = () => {
           <img
             src={davaoOneLogo}
             alt="DavaoOne app logo"
-            width={160}
-            height={160}
+            width={128}
+            height={128}
             loading="lazy"
             decoding="async"
-            className="h-32 w-32 shrink-0 rounded-2xl object-contain sm:h-40 sm:w-40"
+            className="h-24 w-24 shrink-0 rounded-2xl object-contain sm:h-32 sm:w-32"
           />
           <div className="min-w-0 text-center sm:text-left">
             <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">

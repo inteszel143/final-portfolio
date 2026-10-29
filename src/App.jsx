@@ -21,15 +21,33 @@ const App = () => {
     }
 
     let characterIndex = 0;
-    const intervalId = window.setInterval(() => {
-      characterIndex += 1;
-      setTypedLabel(FLOAT_BUTTON_LABEL.slice(0, characterIndex));
-      if (characterIndex >= FLOAT_BUTTON_LABEL.length) {
-        window.clearInterval(intervalId);
-      }
-    }, 110);
+    let isDeleting = false;
+    let timeoutId;
 
-    return () => window.clearInterval(intervalId);
+    const tick = () => {
+      if (isDeleting) {
+        characterIndex -= 1;
+      } else {
+        characterIndex += 1;
+      }
+
+      setTypedLabel(FLOAT_BUTTON_LABEL.slice(0, characterIndex));
+
+      if (!isDeleting && characterIndex === FLOAT_BUTTON_LABEL.length) {
+        isDeleting = true;
+        timeoutId = window.setTimeout(tick, 1200);
+        return;
+      }
+
+      if (isDeleting && characterIndex === 0) {
+        isDeleting = false;
+      }
+
+      timeoutId = window.setTimeout(tick, isDeleting ? 70 : 110);
+    };
+
+    timeoutId = window.setTimeout(tick, 110);
+    return () => window.clearTimeout(timeoutId);
   }, [reduceMotion]);
 
   return (
