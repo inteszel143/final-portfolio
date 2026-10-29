@@ -3,8 +3,13 @@ import profilePic from "../assets/edzelHero.png";
 import davaoOneLogo from "../assets/logo/davaoone.png";
 import kapeGoLogo from "../assets/logo/KapeGo.png";
 import resumePdf from "../assets/resume/Intes Resume.pdf";
+import personalAppScreen1 from "../assets/personal-app/ss1.png";
+import personalAppScreen2 from "../assets/personal-app/ss2.png";
+import personalAppScreen3 from "../assets/personal-app/ss3.png";
+import personalAppScreen4 from "../assets/personal-app/ss4.png";
+import personalAppScreen5 from "../assets/personal-app/ss5.png";
 import { motion, useReducedMotion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaAws } from "react-icons/fa";
 import { FiSmartphone } from "react-icons/fi";
 import { FiArrowUpRight, FiArrowRight } from "react-icons/fi";
@@ -32,10 +37,28 @@ const coreStack = [
   { name: "MongoDB", Icon: SiMongodb, color: "text-green-400" },
 ];
 
+const personalAppScreens = [
+  personalAppScreen1,
+  personalAppScreen2,
+  personalAppScreen3,
+  personalAppScreen4,
+  personalAppScreen5,
+];
+
 const Hero = () => {
   const reduceMotion = useReducedMotion();
+  const [selectedScreen, setSelectedScreen] = useState(null);
+  const screenDialog = useRef(null);
   const [contributionsUnavailable, setContributionsUnavailable] =
     useState(false);
+
+  useEffect(() => {
+    const dialog = screenDialog.current;
+    if (!dialog) return;
+
+    if (selectedScreen !== null && !dialog.open) dialog.showModal();
+    if (selectedScreen === null && dialog.open) dialog.close();
+  }, [selectedScreen]);
 
   return (
     <section
@@ -234,7 +257,7 @@ const Hero = () => {
               services more accessible through a centralized digital platform.
             </p>
             <p className="mt-3 text-sm font-medium text-amber-300">
-              Currently in development; not yet live or available to download.
+              App preview below. DavaoOne is not yet available in the app stores.
             </p>
             <h3 className="mt-5 text-sm font-semibold text-neutral-200 sm:text-base">
               With DavaoOne, you can:
@@ -253,6 +276,75 @@ const Hero = () => {
             </ul>
           </div>
         </div>
+        <div className="border-t border-neutral-800 pt-6 sm:pt-7">
+          <div className="mb-4">
+            <h3 className="text-sm font-semibold text-neutral-200 sm:text-base">
+              App screens
+            </h3>
+            <p className="mt-1 text-sm text-neutral-400">
+              A preview of the DavaoOne mobile app experience.
+            </p>
+          </div>
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 xl:grid-cols-5">
+            {personalAppScreens.map((screen, index) => (
+              <li key={screen} className="min-w-0">
+                <figure className="overflow-hidden rounded-2xl border border-neutral-700 bg-neutral-900/60 p-2 sm:p-3">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedScreen(index)}
+                    aria-label={`View DavaoOne app screen ${index + 1} full size`}
+                    className="block w-full overflow-hidden rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+                  >
+                    <img
+                      src={screen}
+                      alt={`DavaoOne app screen ${index + 1}`}
+                      width={390}
+                      height={844}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[9/19.5] w-full object-cover transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
+                    />
+                  </button>
+                  <figcaption className="pt-2 text-center text-xs text-neutral-400">
+                    Screen {index + 1} · Click to enlarge
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <dialog
+          ref={screenDialog}
+          aria-label="DavaoOne app screenshot viewer"
+          onClose={() => setSelectedScreen(null)}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) event.currentTarget.close();
+          }}
+          className="m-auto max-h-[calc(100dvh-2rem)] max-w-[calc(100vw-2rem)] overflow-visible rounded-2xl border border-neutral-700 bg-neutral-950 p-3 text-neutral-100 shadow-2xl backdrop:bg-black/85 sm:p-5"
+        >
+          {selectedScreen !== null && (
+            <div className="flex max-h-[calc(100dvh-4rem)] flex-col items-center gap-3">
+              <div className="flex w-full items-center justify-between gap-4">
+                <p className="text-sm text-neutral-300">
+                  DavaoOne screen {selectedScreen + 1} of {personalAppScreens.length}
+                </p>
+                <button
+                  type="button"
+                  autoFocus
+                  onClick={() => screenDialog.current?.close()}
+                  className="inline-flex min-h-11 items-center rounded-lg border border-neutral-700 px-4 text-sm font-medium hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+                >
+                  Close
+                </button>
+              </div>
+              <img
+                src={personalAppScreens[selectedScreen]}
+                alt={`DavaoOne app screen ${selectedScreen + 1}, enlarged`}
+                className="max-h-[calc(100dvh-9rem)] max-w-full rounded-lg object-contain"
+              />
+            </div>
+          )}
+        </dialog>
         <div className="flex flex-col items-center gap-5 border-t border-neutral-800 pt-6 sm:flex-row sm:items-start sm:pt-7">
           <img
             src={kapeGoLogo}
@@ -350,6 +442,14 @@ const Hero = () => {
               digital experience.
             </p>
           </div>
+        </div>
+        <div className="border-t border-neutral-800 pt-6 sm:pt-7">
+          <h4 className="text-sm font-semibold text-neutral-200 sm:text-base">
+            App screens
+          </h4>
+          <p className="mt-1 text-sm text-neutral-400">
+            KapeGo screenshots will appear here when added to the personal-app assets.
+          </p>
         </div>
       </motion.section>
     </section>
