@@ -367,7 +367,7 @@ const Hero = () => {
             </h3>
             <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base">
               KapeGo is a mobile platform designed to connect coffee lovers with
-              local coffee shops in Midsayap, Cotabato, making it easier to
+              local coffee shops in the City, making it easier to
               discover new places, explore menus, and support local businesses.
             </p>
             <p className="mt-3 text-sm leading-7 text-neutral-400 sm:text-base">
@@ -393,7 +393,7 @@ const Hero = () => {
                 <strong className="font-semibold text-neutral-200">
                   Discover Local Coffee Shops
                 </strong>{" "}
-                — Explore coffee shops around Midsayap and find your next
+                — Explore coffee shops around City and find your next
                 favorite spot.
               </li>
               <li>
@@ -437,7 +437,7 @@ const Hero = () => {
               </li>
             </ul>
             <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base">
-              KapeGo aims to bring Midsayap&apos;s growing coffee community
+              KapeGo aims to bring City growing coffee community
               closer together through a simple, accessible, and convenient
               digital experience.
             </p>
