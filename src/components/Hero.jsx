@@ -1,7 +1,7 @@
 import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/edzelHero.png";
 import davaoOneLogo from "../assets/logo/davaoone.png";
-import kapeGoLogo from "../assets/logo/KapeGo.png";
+import tukuLogo from "../assets/logo/TUKU.png";
 import resumePdf from "../assets/resume/Intes Resume.pdf";
 import personalAppScreen1 from "../assets/personal-app/ss1.png";
 import personalAppScreen2 from "../assets/personal-app/ss2.png";
@@ -347,13 +347,13 @@ const Hero = () => {
         </dialog>
         <div className="flex flex-col items-center gap-5 border-t border-neutral-800 pt-6 sm:flex-row sm:items-start sm:pt-7">
           <img
-            src={kapeGoLogo}
-            alt="KapeGo app logo"
+            src={tukuLogo}
+            alt="TUKU app logo"
             width={128}
             height={128}
             loading="lazy"
             decoding="async"
-            className="h-24 w-24 shrink-0 rounded-2xl object-contain sm:h-32 sm:w-32"
+            className="h-24 w-24 shrink-0 rounded-[24%] object-contain sm:h-32 sm:w-32"
           />
           <div className="min-w-0 text-center sm:text-left">
             <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
@@ -363,16 +363,16 @@ const Hero = () => {
               </span>
             </div>
             <h3 className="mt-1 text-xl font-semibold leading-snug text-neutral-100 sm:text-2xl">
-              KapeGo – Your City. Your Coffee.
+              TUKU – Your City. Your Coffee.
             </h3>
             <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base">
-              KapeGo is a mobile platform designed to connect coffee lovers with
+              TUKU is a mobile platform designed to connect coffee lovers with
               local coffee shops in the City, making it easier to
               discover new places, explore menus, and support local businesses.
             </p>
             <p className="mt-3 text-sm leading-7 text-neutral-400 sm:text-base">
               Designed as a convenient digital destination for the local coffee
-              community, KapeGo helps customers find coffee shops, check
+              community, TUKU helps customers find coffee shops, check
               available drinks and prices, explore special promotions, and
               discover their next favorite coffee spot—all in one place.
             </p>
@@ -385,7 +385,7 @@ const Hero = () => {
               Currently in development; not yet live or available to download.
             </p>
             <h4 className="mt-5 text-sm font-semibold text-neutral-200 sm:text-base">
-              With KapeGo, you can:
+              With TUKU, you can:
             </h4>
             <ul className="mt-3 space-y-2 text-left text-sm leading-7 text-neutral-400 sm:text-base">
               <li>
@@ -437,7 +437,7 @@ const Hero = () => {
               </li>
             </ul>
             <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base">
-              KapeGo aims to bring City growing coffee community
+              TUKU aims to bring City growing coffee community
               closer together through a simple, accessible, and convenient
               digital experience.
             </p>
@@ -448,7 +448,7 @@ const Hero = () => {
             App screens
           </h4>
           <p className="mt-1 text-sm text-neutral-400">
-            KapeGo screenshots will appear here when added to the personal-app assets.
+            TUKU screenshots will appear here when added to the personal-app assets.
           </p>
         </div>
       </motion.section>
