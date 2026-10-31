@@ -1,4 +1,4 @@
-import { HERO_CONTENT } from "../constants";
+import { CONTACT, HERO_CONTENT } from "../constants";
 import profilePic from "../assets/edzelHero.png";
 import davaoOneLogo from "../assets/logo/davaoone.png";
 import tukuLogo from "../assets/logo/TUKU.png";
@@ -10,7 +10,7 @@ import personalAppScreen4 from "../assets/personal-app/ss4.png";
 import personalAppScreen5 from "../assets/personal-app/ss5.png";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { FaAws } from "react-icons/fa";
+import { FaApple, FaAws, FaGithub, FaGooglePlay } from "react-icons/fa";
 import { FiSmartphone } from "react-icons/fi";
 import { FiArrowUpRight, FiArrowRight } from "react-icons/fi";
 import {
@@ -45,10 +45,21 @@ const personalAppScreens = [
   personalAppScreen5,
 ];
 
+const tukuAppScreens = Object.entries(
+  import.meta.glob("../assets/personal-app/tuku/*.png", {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }),
+)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, screen]) => screen);
+
 const Hero = () => {
   const reduceMotion = useReducedMotion();
   const [selectedScreen, setSelectedScreen] = useState(null);
   const screenDialog = useRef(null);
+  const contactDialog = useRef(null);
   const [contributionsUnavailable, setContributionsUnavailable] =
     useState(false);
 
@@ -220,133 +231,6 @@ const Hero = () => {
       >
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
           <img
-            src={davaoOneLogo}
-            alt="DavaoOne app logo"
-            width={128}
-            height={128}
-            loading="lazy"
-            decoding="async"
-            className="h-24 w-24 shrink-0 rounded-2xl object-contain sm:h-32 sm:w-32"
-          />
-          <div className="min-w-0 text-center sm:text-left">
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
-              <p className="text-sm font-medium text-green-300">Personal App · In Progress</p>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/20 bg-sky-400/5 px-2.5 py-1 text-xs font-medium text-sky-300">
-                <FiSmartphone aria-hidden="true" /> Mobile App
-              </span>
-            </div>
-            <h2
-              id="personal-app-heading"
-              className="mt-1 text-xl font-semibold leading-snug text-neutral-100 sm:text-2xl"
-            >
-              DavaoOne - Built for good governance, designed for Davaoeños.
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base">
-              DavaoOne is the official mobile application developed in
-              partnership with the Local Government of Davao City to bring
-              public service closer to every Davaoeños.
-            </p>
-            <p className="mt-3 text-sm leading-7 text-neutral-400 sm:text-base">
-              Designed as a digital gateway to the city, the app empowers
-              citizens through accessible information, timely updates, and
-              seamless navigation of city services.
-            </p>
-            <p className="mt-3 text-sm leading-7 text-neutral-400 sm:text-base">
-              This app was created to promote transparency, good governance, and
-              citizen empowerment by making essential public information and
-              services more accessible through a centralized digital platform.
-            </p>
-            <p className="mt-3 text-sm font-medium text-amber-300">
-              App preview below. DavaoOne is not yet available in the app stores.
-            </p>
-            <h3 className="mt-5 text-sm font-semibold text-neutral-200 sm:text-base">
-              With DavaoOne, you can:
-            </h3>
-            <ul className="mt-3 space-y-2 text-left text-sm leading-7 text-neutral-400 sm:text-base">
-              <li>
-                🔍 Find clear guides and shortcuts to avail city services with
-                ease
-              </li>
-              <li>
-                📰 Browse the latest city news and official updates all in one
-                place
-              </li>
-              <li>☎️ Quickly access emergency hotlines for help</li>
-              <li>🚨 Report community issues directly from your phone</li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-neutral-800 pt-6 sm:pt-7">
-          <div className="mb-4">
-            <h3 className="text-sm font-semibold text-neutral-200 sm:text-base">
-              App screens
-            </h3>
-            <p className="mt-1 text-sm text-neutral-400">
-              A preview of the DavaoOne mobile app experience.
-            </p>
-          </div>
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 xl:grid-cols-5">
-            {personalAppScreens.map((screen, index) => (
-              <li key={screen} className="min-w-0">
-                <figure className="overflow-hidden rounded-2xl border border-neutral-700 bg-neutral-900/60 p-2 sm:p-3">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedScreen(index)}
-                    aria-label={`View DavaoOne app screen ${index + 1} full size`}
-                    className="block w-full overflow-hidden rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
-                  >
-                    <img
-                      src={screen}
-                      alt={`DavaoOne app screen ${index + 1}`}
-                      width={390}
-                      height={844}
-                      loading="lazy"
-                      decoding="async"
-                      className="aspect-[9/19.5] w-full object-cover transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
-                    />
-                  </button>
-                  <figcaption className="pt-2 text-center text-xs text-neutral-400">
-                    Screen {index + 1} · Click to enlarge
-                  </figcaption>
-                </figure>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <dialog
-          ref={screenDialog}
-          aria-label="DavaoOne app screenshot viewer"
-          onClose={() => setSelectedScreen(null)}
-          onClick={(event) => {
-            if (event.target === event.currentTarget) event.currentTarget.close();
-          }}
-          className="m-auto max-h-[calc(100dvh-2rem)] max-w-[calc(100vw-2rem)] overflow-visible rounded-2xl border border-neutral-700 bg-neutral-950 p-3 text-neutral-100 shadow-2xl backdrop:bg-black/85 sm:p-5"
-        >
-          {selectedScreen !== null && (
-            <div className="flex max-h-[calc(100dvh-4rem)] flex-col items-center gap-3">
-              <div className="flex w-full items-center justify-between gap-4">
-                <p className="text-sm text-neutral-300">
-                  DavaoOne screen {selectedScreen + 1} of {personalAppScreens.length}
-                </p>
-                <button
-                  type="button"
-                  autoFocus
-                  onClick={() => screenDialog.current?.close()}
-                  className="inline-flex min-h-11 items-center rounded-lg border border-neutral-700 px-4 text-sm font-medium hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
-                >
-                  Close
-                </button>
-              </div>
-              <img
-                src={personalAppScreens[selectedScreen]}
-                alt={`DavaoOne app screen ${selectedScreen + 1}, enlarged`}
-                className="max-h-[calc(100dvh-9rem)] max-w-full rounded-lg object-contain"
-              />
-            </div>
-          )}
-        </dialog>
-        <div className="flex flex-col items-center gap-5 border-t border-neutral-800 pt-6 sm:flex-row sm:items-start sm:pt-7">
-          <img
             src={tukuLogo}
             alt="TUKU app logo"
             width={128}
@@ -362,9 +246,9 @@ const Hero = () => {
                 <FiSmartphone aria-hidden="true" /> Mobile App
               </span>
             </div>
-            <h3 className="mt-1 text-xl font-semibold leading-snug text-neutral-100 sm:text-2xl">
+            <h2 id="personal-app-heading" className="mt-1 text-xl font-semibold leading-snug text-neutral-100 sm:text-2xl">
               TUKU – Your City. Your Coffee.
-            </h3>
+            </h2>
             <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base">
               TUKU is a mobile platform designed to connect coffee lovers with
               local coffee shops in the City, making it easier to
@@ -384,9 +268,37 @@ const Hero = () => {
             <p className="mt-3 text-sm font-medium text-amber-300">
               Currently in development; not yet live or available to download.
             </p>
-            <h4 className="mt-5 text-sm font-semibold text-neutral-200 sm:text-base">
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3 sm:justify-start" role="group" aria-label="TUKU links">
+              <a
+                href="https://github.com/inteszel143/tuku-mobile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2 text-sm font-medium text-neutral-100 transition-colors hover:bg-neutral-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+              >
+                <FaGithub aria-hidden="true" /> GitHub
+                <FiArrowUpRight aria-hidden="true" />
+                <span className="sr-only"> (TUKU, opens in a new tab)</span>
+              </a>
+              <button
+                type="button"
+                disabled
+                className="inline-flex min-h-11 cursor-not-allowed items-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-2 text-sm font-medium text-neutral-500"
+              >
+                <FaGooglePlay aria-hidden="true" /> Google Play
+                <span className="text-xs">Not available yet</span>
+              </button>
+              <button
+                type="button"
+                disabled
+                className="inline-flex min-h-11 cursor-not-allowed items-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-2 text-sm font-medium text-neutral-500"
+              >
+                <FaApple aria-hidden="true" /> App Store
+                <span className="text-xs">Not available yet</span>
+              </button>
+            </div>
+            <h3 className="mt-5 text-sm font-semibold text-neutral-200 sm:text-base">
               With TUKU, you can:
-            </h4>
+            </h3>
             <ul className="mt-3 space-y-2 text-left text-sm leading-7 text-neutral-400 sm:text-base">
               <li>
                 ☕{" "}
@@ -444,13 +356,259 @@ const Hero = () => {
           </div>
         </div>
         <div className="border-t border-neutral-800 pt-6 sm:pt-7">
-          <h4 className="text-sm font-semibold text-neutral-200 sm:text-base">
-            App screens
-          </h4>
-          <p className="mt-1 text-sm text-neutral-400">
-            TUKU screenshots will appear here when added to the personal-app assets.
-          </p>
+          <div className="mb-4">
+            <h3 className="text-sm font-semibold text-neutral-200 sm:text-base">
+              App screens
+            </h3>
+            <p className="mt-1 text-sm text-neutral-400">
+              A preview of the TUKU mobile app experience.
+            </p>
+          </div>
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 xl:grid-cols-5">
+            {tukuAppScreens.map((screen, index) => (
+              <li key={screen} className="min-w-0">
+                <figure className="overflow-hidden rounded-2xl border border-neutral-700 bg-neutral-900/60 p-2 sm:p-3">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedScreen({ app: "TUKU", index, screens: tukuAppScreens })}
+                    aria-label={`View TUKU app screen ${index + 1} full size`}
+                    className="block w-full overflow-hidden rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+                  >
+                    <img
+                      src={screen}
+                      alt={`TUKU app screen ${index + 1}`}
+                      width={390}
+                      height={844}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[9/19.5] w-full object-cover transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
+                    />
+                  </button>
+                  <figcaption className="pt-2 text-center text-xs text-neutral-400">
+                    Screen {index + 1} · Click to enlarge
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+            <li className="min-w-0">
+              <div className="overflow-hidden rounded-2xl border border-neutral-700 bg-neutral-900/60 p-2 sm:p-3">
+                <button
+                  type="button"
+                  onClick={() => contactDialog.current?.showModal()}
+                  aria-haspopup="dialog"
+                  aria-controls="tuku-contact-dialog"
+                  aria-label="43 more TUKU screens. Contact Edzel for details"
+                  className="flex aspect-[9/19.5] w-full flex-col items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-emerald-800 via-teal-950 to-neutral-950 px-3 text-center transition-colors hover:from-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+                >
+                  <span className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">+43</span>
+                  <span className="text-base font-medium text-emerald-100">screens</span>
+                  <span className="mt-2 text-xs leading-5 text-emerald-100/80">Want to see more?<br />Get in touch</span>
+                </button>
+                <p className="pt-2 text-center text-xs text-neutral-400">Contact for more details</p>
+              </div>
+            </li>
+          </ul>
         </div>
+        <div className="flex flex-col items-center gap-6 border-t border-neutral-800 pt-6 sm:flex-row sm:items-start sm:pt-7">
+          <img
+            src={davaoOneLogo}
+            alt="DavaoOne app logo"
+            width={128}
+            height={128}
+            loading="lazy"
+            decoding="async"
+            className="h-24 w-24 shrink-0 rounded-2xl object-contain sm:h-32 sm:w-32"
+          />
+          <div className="min-w-0 text-center sm:text-left">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+              <p className="text-sm font-medium text-green-300">Personal App · In Progress</p>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/20 bg-sky-400/5 px-2.5 py-1 text-xs font-medium text-sky-300">
+                <FiSmartphone aria-hidden="true" /> Mobile App
+              </span>
+            </div>
+            <h2
+              id="davaoone-heading"
+              className="mt-1 text-xl font-semibold leading-snug text-neutral-100 sm:text-2xl"
+            >
+              DavaoOne - Built for good governance, designed for Davaoeños.
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-neutral-400 sm:text-base">
+              DavaoOne is the official mobile application developed in
+              partnership with the Local Government of Davao City to bring
+              public service closer to every Davaoeños.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-neutral-400 sm:text-base">
+              Designed as a digital gateway to the city, the app empowers
+              citizens through accessible information, timely updates, and
+              seamless navigation of city services.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-neutral-400 sm:text-base">
+              This app was created to promote transparency, good governance, and
+              citizen empowerment by making essential public information and
+              services more accessible through a centralized digital platform.
+            </p>
+            <p className="mt-3 text-sm font-medium text-amber-300">
+              App preview below. DavaoOne is not yet available in the app stores.
+            </p>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3 sm:justify-start" role="group" aria-label="DavaoOne links">
+              <a
+                href="https://github.com/inteszel143/davaoone-mobile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2 text-sm font-medium text-neutral-100 transition-colors hover:bg-neutral-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+              >
+                <FaGithub aria-hidden="true" /> GitHub
+                <FiArrowUpRight aria-hidden="true" />
+                <span className="sr-only"> (DavaoOne, opens in a new tab)</span>
+              </a>
+              <button
+                type="button"
+                disabled
+                className="inline-flex min-h-11 cursor-not-allowed items-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-2 text-sm font-medium text-neutral-500"
+              >
+                <FaGooglePlay aria-hidden="true" /> Google Play
+                <span className="text-xs">Not available yet</span>
+              </button>
+              <button
+                type="button"
+                disabled
+                className="inline-flex min-h-11 cursor-not-allowed items-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-2 text-sm font-medium text-neutral-500"
+              >
+                <FaApple aria-hidden="true" /> App Store
+                <span className="text-xs">Not available yet</span>
+              </button>
+            </div>
+            <h3 className="mt-5 text-sm font-semibold text-neutral-200 sm:text-base">
+              With DavaoOne, you can:
+            </h3>
+            <ul className="mt-3 space-y-2 text-left text-sm leading-7 text-neutral-400 sm:text-base">
+              <li>
+                🔍 Find clear guides and shortcuts to avail city services with
+                ease
+              </li>
+              <li>
+                📰 Browse the latest city news and official updates all in one
+                place
+              </li>
+              <li>☎️ Quickly access emergency hotlines for help</li>
+              <li>🚨 Report community issues directly from your phone</li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-neutral-800 pt-6 sm:pt-7">
+          <div className="mb-4">
+            <h3 className="text-sm font-semibold text-neutral-200 sm:text-base">
+              App screens
+            </h3>
+            <p className="mt-1 text-sm text-neutral-400">
+              A preview of the DavaoOne mobile app experience.
+            </p>
+          </div>
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 xl:grid-cols-5">
+            {personalAppScreens.map((screen, index) => (
+              <li key={screen} className="min-w-0">
+                <figure className="overflow-hidden rounded-2xl border border-neutral-700 bg-neutral-900/60 p-2 sm:p-3">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedScreen({ app: "DavaoOne", index, screens: personalAppScreens })}
+                    aria-label={`View DavaoOne app screen ${index + 1} full size`}
+                    className="block w-full overflow-hidden rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+                  >
+                    <img
+                      src={screen}
+                      alt={`DavaoOne app screen ${index + 1}`}
+                      width={390}
+                      height={844}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[9/19.5] w-full object-cover transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
+                    />
+                  </button>
+                  <figcaption className="pt-2 text-center text-xs text-neutral-400">
+                    Screen {index + 1} · Click to enlarge
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <dialog
+          id="tuku-contact-dialog"
+          ref={contactDialog}
+          aria-labelledby="tuku-contact-heading"
+          aria-describedby="tuku-contact-description"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) event.currentTarget.close();
+          }}
+          className="m-auto max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-md overflow-y-auto rounded-2xl border border-neutral-700 bg-neutral-950 p-6 text-neutral-100 shadow-2xl backdrop:bg-black/85 sm:p-8"
+        >
+          <div className="flex items-center justify-between gap-4">
+            <p className="text-sm font-medium text-green-300">More of TUKU</p>
+            <button
+              type="button"
+              autoFocus
+              onClick={() => contactDialog.current?.close()}
+              className="inline-flex min-h-11 items-center rounded-lg border border-neutral-700 px-4 text-sm font-medium hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+            >
+              Close
+            </button>
+          </div>
+          <h2 id="tuku-contact-heading" className="mt-5 text-2xl font-semibold">Let’s get in touch</h2>
+          <p id="tuku-contact-description" className="mt-3 text-sm leading-7 text-neutral-400">
+            Interested in the other 43 screens or more details about TUKU? Contact me to learn more.
+          </p>
+          <p className="mt-6 font-medium">Edzel Intes</p>
+          <dl className="mt-4 space-y-4 text-sm">
+            <div>
+              <dt className="text-neutral-400">Email</dt>
+              <dd>
+                <a href={`mailto:${CONTACT.email}`} className="inline-flex min-h-11 items-center break-all rounded text-green-300 underline decoration-green-300/40 underline-offset-4 hover:text-green-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400">
+                  {CONTACT.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-neutral-400">Phone</dt>
+              <dd>
+                <a href={`tel:${CONTACT.phoneNo.replace(/[^+\d]/g, "")}`} className="inline-flex min-h-11 items-center rounded text-green-300 underline decoration-green-300/40 underline-offset-4 hover:text-green-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400">
+                  {CONTACT.phoneNo}
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </dialog>
+        <dialog
+          ref={screenDialog}
+          aria-label={`${selectedScreen?.app ?? "App"} screenshot viewer`}
+          onClose={() => setSelectedScreen(null)}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) event.currentTarget.close();
+          }}
+          className="m-auto max-h-[calc(100dvh-2rem)] max-w-[calc(100vw-2rem)] overflow-visible rounded-2xl border border-neutral-700 bg-neutral-950 p-3 text-neutral-100 shadow-2xl backdrop:bg-black/85 sm:p-5"
+        >
+          {selectedScreen !== null && (
+            <div className="flex max-h-[calc(100dvh-4rem)] flex-col items-center gap-3">
+              <div className="flex w-full items-center justify-between gap-4">
+                <p className="text-sm text-neutral-300">
+                  {selectedScreen.app} screen {selectedScreen.index + 1} of {selectedScreen.screens.length}
+                </p>
+                <button
+                  type="button"
+                  autoFocus
+                  onClick={() => screenDialog.current?.close()}
+                  className="inline-flex min-h-11 items-center rounded-lg border border-neutral-700 px-4 text-sm font-medium hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+                >
+                  Close
+                </button>
+              </div>
+              <img
+                src={selectedScreen.screens[selectedScreen.index]}
+                alt={`${selectedScreen.app} app screen ${selectedScreen.index + 1}, enlarged`}
+                className="max-h-[calc(100dvh-9rem)] max-w-full rounded-lg object-contain"
+              />
+            </div>
+          )}
+        </dialog>
       </motion.section>
     </section>
   );
