@@ -220,13 +220,9 @@ const Hero = () => {
         </motion.section>
       </div>
 
-      <motion.section
+      <section
         id="personal-app"
         aria-labelledby="personal-app-heading"
-        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: reduceMotion ? 0 : 0.5 }}
         className="mx-auto mt-5 flex max-w-6xl flex-col gap-6 rounded-3xl border border-neutral-800 bg-[#161616] p-6 sm:p-8"
       >
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
@@ -609,7 +605,7 @@ const Hero = () => {
             </div>
           )}
         </dialog>
-      </motion.section>
+      </section>
     </section>
   );
 };
